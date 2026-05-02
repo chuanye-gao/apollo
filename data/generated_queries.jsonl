@@ -1,0 +1,22 @@
+{"query":"明天下午三点提醒我开会","tool_code":"alarm.create","arguments":{"time":"下午三点","date":"明天"}}
+{"query":"半小时后叫我喝水","tool_code":"alarm.create","arguments":{"time":"半小时后"}}
+{"query":"给张三发消息说我晚点到","tool_code":"message.send","arguments":{"recipient":"张三","content":"我晚点到"}}
+{"query":"告诉李雷会议取消了","tool_code":"message.send","arguments":{"recipient":"李雷","content":"会议取消了"}}
+{"query":"下周一上午十点安排团队例会","tool_code":"calendar.create","arguments":{"title":"团队例会","time":"上午十点","date":"下周一"}}
+{"query":"把今晚七点的读书会加入日历","tool_code":"calendar.create","arguments":{"title":"读书会","time":"今晚七点"}}
+{"query":"查一下北京明天的天气","tool_code":"weather.query","arguments":{"location":"北京","date":"明天"}}
+{"query":"上海今天会下雨吗","tool_code":"weather.query","arguments":{"location":"上海","date":"今天"}}
+{"query":"播放周杰伦的晴天","tool_code":"music.play","arguments":{"query":"周杰伦的晴天"}}
+{"query":"来点适合工作的白噪音","tool_code":"music.play","arguments":{"query":"适合工作的白噪音"}}
+{"query":"导航到浦东机场","tool_code":"navigation.start","arguments":{"destination":"浦东机场"}}
+{"query":"带我去最近的加油站","tool_code":"navigation.start","arguments":{"destination":"最近的加油站"}}
+{"query":"记一下今天要买牛奶","tool_code":"note.create","arguments":{"content":"今天要买牛奶"}}
+{"query":"记录灵感：做一个工具路由器","tool_code":"note.create","arguments":{"content":"做一个工具路由器"}}
+{"query":"给王总发邮件说明项目延期","tool_code":"email.send","arguments":{"recipient":"王总","content":"项目延期"}}
+{"query":"发邮件给 hr 询问面试结果","tool_code":"email.send","arguments":{"recipient":"hr","content":"询问面试结果"}}
+{"query":"加一个待办：报销差旅费","tool_code":"todo.create","arguments":{"content":"报销差旅费"}}
+{"query":"创建任务整理周报","tool_code":"todo.create","arguments":{"content":"整理周报"}}
+{"query":"查一下张三的电话","tool_code":"contact.search","arguments":{"name":"张三"}}
+{"query":"帮我找李雷的邮箱","tool_code":"contact.search","arguments":{"name":"李雷"}}
+{"query":"你觉得 embedding 召回有什么优点","tool_code":"none","arguments":{}}
+{"query":"给我解释一下余弦相似度","tool_code":"none","arguments":{}}

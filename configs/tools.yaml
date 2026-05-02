@@ -1,0 +1,189 @@
+tools:
+  - code: "alarm.create"
+    name: "创建闹钟"
+    description: "设置闹钟、提醒、定时叫醒或到点通知"
+    aliases: ["闹钟", "提醒我", "叫我", "定个提醒"]
+    examples:
+      - "明早八点叫我起床"
+      - "设置一个下午三点的闹钟"
+      - "半小时后提醒我喝水"
+      - "明天下午三点提醒我开会"
+      - "周五晚上七点叫我去健身"
+    arguments:
+      time:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "message.send"
+    name: "发送消息"
+    description: "给联系人发送短信、即时消息或通知内容"
+    aliases: ["发消息", "发短信", "告诉某人", "通知"]
+    examples:
+      - "给张三发消息说我晚点到"
+      - "告诉李雷会议改到三点"
+      - "帮我给妈妈发短信说今晚回家吃饭"
+      - "通知王经理我已经提交报告"
+      - "给小明发一句生日快乐"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: true
+
+  - code: "calendar.create"
+    name: "创建日程"
+    description: "创建会议、约会、日程安排或日历事件"
+    aliases: ["日程", "会议", "安排", "日历"]
+    examples:
+      - "明天下午两点安排产品评审会"
+      - "下周一上午十点加一个团队例会"
+      - "帮我创建周五和客户吃饭的日程"
+      - "把今晚七点的读书会加入日历"
+      - "安排一个月底复盘会议"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      time:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "weather.query"
+    name: "查询天气"
+    description: "查询城市或地区的天气、温度、降雨和空气情况"
+    aliases: ["天气", "气温", "下雨", "空气质量"]
+    examples:
+      - "上海今天会下雨吗"
+      - "查一下北京明天的天气"
+      - "杭州现在多少度"
+      - "周末广州天气怎么样"
+      - "看看深圳今天空气质量"
+    arguments:
+      location:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "music.play"
+    name: "播放音乐"
+    description: "播放歌曲、歌手、专辑、歌单或音乐类型"
+    aliases: ["放歌", "播放", "听音乐", "来一首"]
+    examples:
+      - "播放周杰伦的晴天"
+      - "来一首轻松的爵士乐"
+      - "放点适合工作的白噪音"
+      - "我想听陈奕迅的歌"
+      - "播放收藏歌单"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "navigation.start"
+    name: "开始导航"
+    description: "规划路线并开始去某个地点的导航"
+    aliases: ["导航", "带我去", "路线", "怎么走"]
+    examples:
+      - "导航到上海虹桥火车站"
+      - "带我去最近的加油站"
+      - "规划去公司最快的路线"
+      - "开车去人民广场怎么走"
+      - "帮我导航到浦东机场"
+    arguments:
+      destination:
+        type: "string"
+        required: true
+      origin:
+        type: "string"
+        required: false
+
+  - code: "note.create"
+    name: "创建笔记"
+    description: "记录备忘、想法、文字笔记或临时信息"
+    aliases: ["记一下", "备忘", "笔记", "记录"]
+    examples:
+      - "记一下今天要买牛奶"
+      - "帮我写个备忘：下午联系供应商"
+      - "记录灵感：做一个语音工具路由器"
+      - "把这句话存成笔记"
+      - "记住护照放在书桌抽屉"
+    arguments:
+      content:
+        type: "string"
+        required: true
+
+  - code: "email.send"
+    name: "发送邮件"
+    description: "给收件人发送电子邮件，包括主题和正文"
+    aliases: ["发邮件", "邮件", "email", "写封信"]
+    examples:
+      - "给王总发邮件说明项目延期"
+      - "发邮件给 hr 询问面试结果"
+      - "写封邮件给客户，主题是合同确认"
+      - "帮我邮件通知团队明天远程办公"
+      - "给 support 发邮件反馈登录问题"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      subject:
+        type: "string"
+        required: false
+      content:
+        type: "string"
+        required: true
+
+  - code: "todo.create"
+    name: "创建待办"
+    description: "创建任务、待办事项、检查清单或要完成的事情"
+    aliases: ["待办", "任务", "todo", "清单"]
+    examples:
+      - "加一个待办：报销差旅费"
+      - "把买打印纸放进任务列表"
+      - "提醒清单里加上更新简历"
+      - "创建任务：整理周报"
+      - "记录一个 todo，晚上跑步"
+    arguments:
+      content:
+        type: "string"
+        required: true
+      due_date:
+        type: "string"
+        required: false
+
+  - code: "contact.search"
+    name: "查找联系人"
+    description: "查找联系人、电话号码、邮箱或通讯录信息"
+    aliases: ["联系人", "电话", "邮箱", "通讯录"]
+    examples:
+      - "查一下张三的电话"
+      - "帮我找李雷的邮箱"
+      - "王经理的联系方式是什么"
+      - "打开妈妈的联系人"
+      - "搜索通讯录里的赵老师"
+    arguments:
+      name:
+        type: "string"
+        required: true
+
+  - code: "none"
+    name: "非指令"
+    description: "闲聊、知识问答、解释说明或不需要调用工具的输入"
+    aliases: []
+    examples:
+      - "你是谁"
+      - "今天天气为什么会变冷"
+      - "给我讲个笑话"
+      - "怎么学习机器学习"
+      - "谢谢你"
+    arguments: {}

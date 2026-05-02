@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apollo-router"
+version = "0.1.0"
+description = "Two-stage embedding recall plus LLM arbitration tool router."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "PyYAML>=6.0",
+  "sentence-transformers>=2.7",
+]
+
+[project.scripts]
+router = "apollo.cli:main"
+
+[tool.setuptools]
+packages = ["apollo"]
