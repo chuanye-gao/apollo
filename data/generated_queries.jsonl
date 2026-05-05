@@ -1,22 +1,850 @@
-{"query":"明天下午三点提醒我开会","tool_code":"alarm.create","arguments":{"time":"下午三点","date":"明天"}}
-{"query":"半小时后叫我喝水","tool_code":"alarm.create","arguments":{"time":"半小时后"}}
-{"query":"给张三发消息说我晚点到","tool_code":"message.send","arguments":{"recipient":"张三","content":"我晚点到"}}
-{"query":"告诉李雷会议取消了","tool_code":"message.send","arguments":{"recipient":"李雷","content":"会议取消了"}}
-{"query":"下周一上午十点安排团队例会","tool_code":"calendar.create","arguments":{"title":"团队例会","time":"上午十点","date":"下周一"}}
-{"query":"把今晚七点的读书会加入日历","tool_code":"calendar.create","arguments":{"title":"读书会","time":"今晚七点"}}
-{"query":"查一下北京明天的天气","tool_code":"weather.query","arguments":{"location":"北京","date":"明天"}}
-{"query":"上海今天会下雨吗","tool_code":"weather.query","arguments":{"location":"上海","date":"今天"}}
-{"query":"播放周杰伦的晴天","tool_code":"music.play","arguments":{"query":"周杰伦的晴天"}}
-{"query":"来点适合工作的白噪音","tool_code":"music.play","arguments":{"query":"适合工作的白噪音"}}
-{"query":"导航到浦东机场","tool_code":"navigation.start","arguments":{"destination":"浦东机场"}}
-{"query":"带我去最近的加油站","tool_code":"navigation.start","arguments":{"destination":"最近的加油站"}}
-{"query":"记一下今天要买牛奶","tool_code":"note.create","arguments":{"content":"今天要买牛奶"}}
-{"query":"记录灵感：做一个工具路由器","tool_code":"note.create","arguments":{"content":"做一个工具路由器"}}
-{"query":"给王总发邮件说明项目延期","tool_code":"email.send","arguments":{"recipient":"王总","content":"项目延期"}}
-{"query":"发邮件给 hr 询问面试结果","tool_code":"email.send","arguments":{"recipient":"hr","content":"询问面试结果"}}
-{"query":"加一个待办：报销差旅费","tool_code":"todo.create","arguments":{"content":"报销差旅费"}}
-{"query":"创建任务整理周报","tool_code":"todo.create","arguments":{"content":"整理周报"}}
-{"query":"查一下张三的电话","tool_code":"contact.search","arguments":{"name":"张三"}}
-{"query":"帮我找李雷的邮箱","tool_code":"contact.search","arguments":{"name":"李雷"}}
-{"query":"你觉得 embedding 召回有什么优点","tool_code":"none","arguments":{}}
-{"query":"给我解释一下余弦相似度","tool_code":"none","arguments":{}}
+{"query": "请帮我搜索文件，查询：季度报告", "tool_code": "file.search", "arguments": {"query": "季度报告"}}
+{"query": "我想搜索文件，查询：季度报告", "tool_code": "file.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下搜索文件这个需求，查询：季度报告", "tool_code": "file.search", "arguments": {"query": "季度报告"}}
+{"query": "先搜索文件，信息稍后补充", "tool_code": "file.search", "arguments": {}}
+{"query": "不是闲聊，帮我搜索文件，查询：季度报告", "tool_code": "file.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我打开文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.open", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想打开文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.open", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下打开文件这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.open", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先打开文件，内容：项目材料已经更新", "tool_code": "file.open", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我打开文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.open", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我复制文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.copy", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想复制文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.copy", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下复制文件这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.copy", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先复制文件，内容：项目材料已经更新", "tool_code": "file.copy", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我复制文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.copy", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我删除文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.delete", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想删除文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.delete", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下删除文件这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.delete", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先删除文件，内容：项目材料已经更新", "tool_code": "file.delete", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我删除文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.delete", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我重命名文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.rename", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想重命名文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.rename", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下重命名文件这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.rename", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先重命名文件，内容：项目材料已经更新", "tool_code": "file.rename", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我重命名文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.rename", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我压缩文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.compress", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想压缩文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.compress", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下压缩文件这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.compress", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先压缩文件，内容：项目材料已经更新", "tool_code": "file.compress", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我压缩文件，文件：方案.docx，内容：项目材料已经更新", "tool_code": "file.compress", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我新建文件夹，标题：周会安排，内容：项目材料已经更新", "tool_code": "folder.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想新建文件夹，标题：周会安排，内容：项目材料已经更新", "tool_code": "folder.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下新建文件夹这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "folder.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先新建文件夹，内容：项目材料已经更新", "tool_code": "folder.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我新建文件夹，标题：周会安排，内容：项目材料已经更新", "tool_code": "folder.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我复制到剪贴板，内容：项目材料已经更新", "tool_code": "clipboard.copy", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想复制到剪贴板，内容：项目材料已经更新", "tool_code": "clipboard.copy", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下复制到剪贴板这个需求，内容：项目材料已经更新", "tool_code": "clipboard.copy", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先复制到剪贴板，信息稍后补充", "tool_code": "clipboard.copy", "arguments": {}}
+{"query": "不是闲聊，帮我复制到剪贴板，内容：项目材料已经更新", "tool_code": "clipboard.copy", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我读取剪贴板，名称：李雷", "tool_code": "clipboard.read", "arguments": {"name": "李雷"}}
+{"query": "我想读取剪贴板，名称：李雷", "tool_code": "clipboard.read", "arguments": {"name": "李雷"}}
+{"query": "处理一下读取剪贴板这个需求，名称：李雷", "tool_code": "clipboard.read", "arguments": {"name": "李雷"}}
+{"query": "先读取剪贴板，名称：李雷", "tool_code": "clipboard.read", "arguments": {"name": "李雷"}}
+{"query": "不是闲聊，帮我读取剪贴板，名称：李雷", "tool_code": "clipboard.read", "arguments": {"name": "李雷"}}
+{"query": "请帮我打开应用，名称：李雷", "tool_code": "app.open", "arguments": {"name": "李雷"}}
+{"query": "我想打开应用，名称：李雷", "tool_code": "app.open", "arguments": {"name": "李雷"}}
+{"query": "处理一下打开应用这个需求，名称：李雷", "tool_code": "app.open", "arguments": {"name": "李雷"}}
+{"query": "先打开应用，信息稍后补充", "tool_code": "app.open", "arguments": {}}
+{"query": "不是闲聊，帮我打开应用，名称：李雷", "tool_code": "app.open", "arguments": {"name": "李雷"}}
+{"query": "请帮我关闭应用，名称：李雷", "tool_code": "app.close", "arguments": {"name": "李雷"}}
+{"query": "我想关闭应用，名称：李雷", "tool_code": "app.close", "arguments": {"name": "李雷"}}
+{"query": "处理一下关闭应用这个需求，名称：李雷", "tool_code": "app.close", "arguments": {"name": "李雷"}}
+{"query": "先关闭应用，名称：李雷", "tool_code": "app.close", "arguments": {"name": "李雷"}}
+{"query": "不是闲聊，帮我关闭应用，名称：李雷", "tool_code": "app.close", "arguments": {"name": "李雷"}}
+{"query": "请帮我切换窗口，名称：李雷", "tool_code": "window.switch", "arguments": {"name": "李雷"}}
+{"query": "我想切换窗口，名称：李雷", "tool_code": "window.switch", "arguments": {"name": "李雷"}}
+{"query": "处理一下切换窗口这个需求，名称：李雷", "tool_code": "window.switch", "arguments": {"name": "李雷"}}
+{"query": "先切换窗口，名称：李雷", "tool_code": "window.switch", "arguments": {"name": "李雷"}}
+{"query": "不是闲聊，帮我切换窗口，名称：李雷", "tool_code": "window.switch", "arguments": {"name": "李雷"}}
+{"query": "请帮我窗口截图，名称：李雷", "tool_code": "window.screenshot", "arguments": {"name": "李雷"}}
+{"query": "我想窗口截图，名称：李雷", "tool_code": "window.screenshot", "arguments": {"name": "李雷"}}
+{"query": "处理一下窗口截图这个需求，名称：李雷", "tool_code": "window.screenshot", "arguments": {"name": "李雷"}}
+{"query": "先窗口截图，名称：李雷", "tool_code": "window.screenshot", "arguments": {"name": "李雷"}}
+{"query": "不是闲聊，帮我窗口截图，名称：李雷", "tool_code": "window.screenshot", "arguments": {"name": "李雷"}}
+{"query": "请帮我系统搜索，名称：李雷", "tool_code": "system.search", "arguments": {"name": "李雷"}}
+{"query": "我想系统搜索，名称：李雷", "tool_code": "system.search", "arguments": {"name": "李雷"}}
+{"query": "处理一下系统搜索这个需求，名称：李雷", "tool_code": "system.search", "arguments": {"name": "李雷"}}
+{"query": "先系统搜索，信息稍后补充", "tool_code": "system.search", "arguments": {}}
+{"query": "不是闲聊，帮我系统搜索，名称：李雷", "tool_code": "system.search", "arguments": {"name": "李雷"}}
+{"query": "请帮我创建通知，内容：项目材料已经更新，时间：明天下午三点，日期：明天", "tool_code": "notification.create", "arguments": {"content": "项目材料已经更新", "time": "明天下午三点", "date": "明天"}}
+{"query": "我想创建通知，内容：项目材料已经更新，时间：明天下午三点，日期：明天", "tool_code": "notification.create", "arguments": {"content": "项目材料已经更新", "time": "明天下午三点", "date": "明天"}}
+{"query": "处理一下创建通知这个需求，内容：项目材料已经更新，时间：明天下午三点，日期：明天", "tool_code": "notification.create", "arguments": {"content": "项目材料已经更新", "time": "明天下午三点", "date": "明天"}}
+{"query": "先创建通知，日期：明天", "tool_code": "notification.create", "arguments": {"date": "明天"}}
+{"query": "不是闲聊，帮我创建通知，内容：项目材料已经更新，时间：明天下午三点，日期：明天", "tool_code": "notification.create", "arguments": {"content": "项目材料已经更新", "time": "明天下午三点", "date": "明天"}}
+{"query": "请帮我切换 Wi-Fi，名称：李雷，模式：开启", "tool_code": "setting.wifi.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "我想切换Wi-Fi，名称：李雷，模式：开启", "tool_code": "setting.wifi.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "处理一下切换 Wi-Fi这个需求，名称：李雷，模式：开启", "tool_code": "setting.wifi.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "先切换 Wi-Fi，信息稍后补充", "tool_code": "setting.wifi.toggle", "arguments": {}}
+{"query": "不是闲聊，帮我切换 Wi-Fi，名称：李雷，模式：开启", "tool_code": "setting.wifi.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "请帮我切换蓝牙，名称：李雷，模式：开启", "tool_code": "setting.bluetooth.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "我想切换蓝牙，名称：李雷，模式：开启", "tool_code": "setting.bluetooth.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "处理一下切换蓝牙这个需求，名称：李雷，模式：开启", "tool_code": "setting.bluetooth.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "先切换蓝牙，信息稍后补充", "tool_code": "setting.bluetooth.toggle", "arguments": {}}
+{"query": "不是闲聊，帮我切换蓝牙，名称：李雷，模式：开启", "tool_code": "setting.bluetooth.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "请帮我设置音量，数量：80", "tool_code": "volume.set", "arguments": {"amount": "80"}}
+{"query": "我想设置音量，数量：80", "tool_code": "volume.set", "arguments": {"amount": "80"}}
+{"query": "处理一下设置音量这个需求，数量：80", "tool_code": "volume.set", "arguments": {"amount": "80"}}
+{"query": "先设置音量，信息稍后补充", "tool_code": "volume.set", "arguments": {}}
+{"query": "不是闲聊，帮我设置音量，数量：80", "tool_code": "volume.set", "arguments": {"amount": "80"}}
+{"query": "请帮我设置亮度，数量：80", "tool_code": "brightness.set", "arguments": {"amount": "80"}}
+{"query": "我想设置亮度，数量：80", "tool_code": "brightness.set", "arguments": {"amount": "80"}}
+{"query": "处理一下设置亮度这个需求，数量：80", "tool_code": "brightness.set", "arguments": {"amount": "80"}}
+{"query": "先设置亮度，信息稍后补充", "tool_code": "brightness.set", "arguments": {}}
+{"query": "不是闲聊，帮我设置亮度，数量：80", "tool_code": "brightness.set", "arguments": {"amount": "80"}}
+{"query": "请帮我生成密码，数量：80", "tool_code": "password.generate", "arguments": {"amount": "80"}}
+{"query": "我想生成密码，数量：80", "tool_code": "password.generate", "arguments": {"amount": "80"}}
+{"query": "处理一下生成密码这个需求，数量：80", "tool_code": "password.generate", "arguments": {"amount": "80"}}
+{"query": "先生成密码，数量：80", "tool_code": "password.generate", "arguments": {"amount": "80"}}
+{"query": "不是闲聊，帮我生成密码，数量：80", "tool_code": "password.generate", "arguments": {"amount": "80"}}
+{"query": "请帮我发送邮件，收件人：张三，主题：项目进度同步，内容：项目材料已经更新", "tool_code": "email.send", "arguments": {"recipient": "张三", "subject": "项目进度同步", "content": "项目材料已经更新"}}
+{"query": "我想发送邮件，收件人：张三，主题：项目进度同步，内容：项目材料已经更新", "tool_code": "email.send", "arguments": {"recipient": "张三", "subject": "项目进度同步", "content": "项目材料已经更新"}}
+{"query": "处理一下发送邮件这个需求，收件人：张三，主题：项目进度同步，内容：项目材料已经更新", "tool_code": "email.send", "arguments": {"recipient": "张三", "subject": "项目进度同步", "content": "项目材料已经更新"}}
+{"query": "先发送邮件，主题：项目进度同步", "tool_code": "email.send", "arguments": {"subject": "项目进度同步"}}
+{"query": "不是闲聊，帮我发送邮件，收件人：张三，主题：项目进度同步，内容：项目材料已经更新", "tool_code": "email.send", "arguments": {"recipient": "张三", "subject": "项目进度同步", "content": "项目材料已经更新"}}
+{"query": "请帮我搜索邮件，查询：季度报告", "tool_code": "email.search", "arguments": {"query": "季度报告"}}
+{"query": "我想搜索邮件，查询：季度报告", "tool_code": "email.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下搜索邮件这个需求，查询：季度报告", "tool_code": "email.search", "arguments": {"query": "季度报告"}}
+{"query": "先搜索邮件，信息稍后补充", "tool_code": "email.search", "arguments": {}}
+{"query": "不是闲聊，帮我搜索邮件，查询：季度报告", "tool_code": "email.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我起草邮件，收件人：张三，主题：项目进度同步，内容：项目材料已经更新", "tool_code": "email.draft", "arguments": {"recipient": "张三", "subject": "项目进度同步", "content": "项目材料已经更新"}}
+{"query": "我想起草邮件，收件人：张三，主题：项目进度同步，内容：项目材料已经更新", "tool_code": "email.draft", "arguments": {"recipient": "张三", "subject": "项目进度同步", "content": "项目材料已经更新"}}
+{"query": "处理一下起草邮件这个需求，收件人：张三，主题：项目进度同步，内容：项目材料已经更新", "tool_code": "email.draft", "arguments": {"recipient": "张三", "subject": "项目进度同步", "content": "项目材料已经更新"}}
+{"query": "先起草邮件，主题：项目进度同步", "tool_code": "email.draft", "arguments": {"subject": "项目进度同步"}}
+{"query": "不是闲聊，帮我起草邮件，收件人：张三，主题：项目进度同步，内容：项目材料已经更新", "tool_code": "email.draft", "arguments": {"recipient": "张三", "subject": "项目进度同步", "content": "项目材料已经更新"}}
+{"query": "请帮我创建日程，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "calendar.create", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "我想创建日程，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "calendar.create", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "处理一下创建日程这个需求，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "calendar.create", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "先创建日程，时间：明天下午三点，地点：上海", "tool_code": "calendar.create", "arguments": {"time": "明天下午三点", "location": "上海"}}
+{"query": "不是闲聊，帮我创建日程，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "calendar.create", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "请帮我查询日程，查询：季度报告", "tool_code": "calendar.query", "arguments": {"query": "季度报告"}}
+{"query": "我想查询日程，查询：季度报告", "tool_code": "calendar.query", "arguments": {"query": "季度报告"}}
+{"query": "处理一下查询日程这个需求，查询：季度报告", "tool_code": "calendar.query", "arguments": {"query": "季度报告"}}
+{"query": "先查询日程，信息稍后补充", "tool_code": "calendar.query", "arguments": {}}
+{"query": "不是闲聊，帮我查询日程，查询：季度报告", "tool_code": "calendar.query", "arguments": {"query": "季度报告"}}
+{"query": "请帮我安排会议，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "meeting.schedule", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "我想安排会议，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "meeting.schedule", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "处理一下安排会议这个需求，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "meeting.schedule", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "先安排会议，时间：明天下午三点，地点：上海", "tool_code": "meeting.schedule", "arguments": {"time": "明天下午三点", "location": "上海"}}
+{"query": "不是闲聊，帮我安排会议，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "meeting.schedule", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "请帮我创建文档，标题：周会安排，内容：项目材料已经更新", "tool_code": "document.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想创建文档，标题：周会安排，内容：项目材料已经更新", "tool_code": "document.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下创建文档这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "document.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先创建文档，内容：项目材料已经更新", "tool_code": "document.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我创建文档，标题：周会安排，内容：项目材料已经更新", "tool_code": "document.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我总结文档，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.summarize", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想总结文档，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.summarize", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下总结文档这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.summarize", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先总结文档，内容：项目材料已经更新", "tool_code": "document.summarize", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我总结文档，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.summarize", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我翻译文档，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.translate", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想翻译文档，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.translate", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下翻译文档这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.translate", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先翻译文档，内容：项目材料已经更新", "tool_code": "document.translate", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我翻译文档，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.translate", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我导出 PDF，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.export_pdf", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想导出PDF，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.export_pdf", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下导出 PDF这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.export_pdf", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先导出 PDF，内容：项目材料已经更新", "tool_code": "document.export_pdf", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我导出 PDF，文件：方案.docx，内容：项目材料已经更新", "tool_code": "document.export_pdf", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我创建表格，标题：周会安排，内容：项目材料已经更新", "tool_code": "spreadsheet.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想创建表格，标题：周会安排，内容：项目材料已经更新", "tool_code": "spreadsheet.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下创建表格这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "spreadsheet.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先创建表格，内容：项目材料已经更新", "tool_code": "spreadsheet.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我创建表格，标题：周会安排，内容：项目材料已经更新", "tool_code": "spreadsheet.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我生成表格图表，查询：季度报告", "tool_code": "spreadsheet.chart", "arguments": {"query": "季度报告"}}
+{"query": "我想生成表格图表，查询：季度报告", "tool_code": "spreadsheet.chart", "arguments": {"query": "季度报告"}}
+{"query": "处理一下生成表格图表这个需求，查询：季度报告", "tool_code": "spreadsheet.chart", "arguments": {"query": "季度报告"}}
+{"query": "先生成表格图表，信息稍后补充", "tool_code": "spreadsheet.chart", "arguments": {}}
+{"query": "不是闲聊，帮我生成表格图表，查询：季度报告", "tool_code": "spreadsheet.chart", "arguments": {"query": "季度报告"}}
+{"query": "请帮我创建幻灯片，标题：周会安排，内容：项目材料已经更新", "tool_code": "slides.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想创建幻灯片，标题：周会安排，内容：项目材料已经更新", "tool_code": "slides.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下创建幻灯片这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "slides.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先创建幻灯片，内容：项目材料已经更新", "tool_code": "slides.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我创建幻灯片，标题：周会安排，内容：项目材料已经更新", "tool_code": "slides.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我创建待办，内容：项目材料已经更新", "tool_code": "todo.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想创建待办，内容：项目材料已经更新", "tool_code": "todo.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下创建待办这个需求，内容：项目材料已经更新", "tool_code": "todo.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先创建待办，信息稍后补充", "tool_code": "todo.create", "arguments": {}}
+{"query": "不是闲聊，帮我创建待办，内容：项目材料已经更新", "tool_code": "todo.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我更新待办，内容：项目材料已经更新", "tool_code": "todo.update", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想更新待办，内容：项目材料已经更新", "tool_code": "todo.update", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下更新待办这个需求，内容：项目材料已经更新", "tool_code": "todo.update", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先更新待办，信息稍后补充", "tool_code": "todo.update", "arguments": {}}
+{"query": "不是闲聊，帮我更新待办，内容：项目材料已经更新", "tool_code": "todo.update", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我提交审批，内容：项目材料已经更新", "tool_code": "approval.submit", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想提交审批，内容：项目材料已经更新", "tool_code": "approval.submit", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下提交审批这个需求，内容：项目材料已经更新", "tool_code": "approval.submit", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先提交审批，信息稍后补充", "tool_code": "approval.submit", "arguments": {}}
+{"query": "不是闲聊，帮我提交审批，内容：项目材料已经更新", "tool_code": "approval.submit", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我创建报销，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "expense.create", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "我想创建报销，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "expense.create", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "处理一下创建报销这个需求，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "expense.create", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "先创建报销，内容：项目材料已经更新", "tool_code": "expense.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我创建报销，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "expense.create", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "请帮我查询发票，查询：季度报告", "tool_code": "invoice.search", "arguments": {"query": "季度报告"}}
+{"query": "我想查询发票，查询：季度报告", "tool_code": "invoice.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下查询发票这个需求，查询：季度报告", "tool_code": "invoice.search", "arguments": {"query": "季度报告"}}
+{"query": "先查询发票，信息稍后补充", "tool_code": "invoice.search", "arguments": {}}
+{"query": "不是闲聊，帮我查询发票，查询：季度报告", "tool_code": "invoice.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我查找联系人，名称：李雷", "tool_code": "contact.search", "arguments": {"name": "李雷"}}
+{"query": "我想查找联系人，名称：李雷", "tool_code": "contact.search", "arguments": {"name": "李雷"}}
+{"query": "处理一下查找联系人这个需求，名称：李雷", "tool_code": "contact.search", "arguments": {"name": "李雷"}}
+{"query": "先查找联系人，信息稍后补充", "tool_code": "contact.search", "arguments": {}}
+{"query": "不是闲聊，帮我查找联系人，名称：李雷", "tool_code": "contact.search", "arguments": {"name": "李雷"}}
+{"query": "请帮我创建提醒，内容：项目材料已经更新，时间：明天下午三点，日期：明天", "tool_code": "reminder.create", "arguments": {"content": "项目材料已经更新", "time": "明天下午三点", "date": "明天"}}
+{"query": "我想创建提醒，内容：项目材料已经更新，时间：明天下午三点，日期：明天", "tool_code": "reminder.create", "arguments": {"content": "项目材料已经更新", "time": "明天下午三点", "date": "明天"}}
+{"query": "处理一下创建提醒这个需求，内容：项目材料已经更新，时间：明天下午三点，日期：明天", "tool_code": "reminder.create", "arguments": {"content": "项目材料已经更新", "time": "明天下午三点", "date": "明天"}}
+{"query": "先创建提醒，日期：明天", "tool_code": "reminder.create", "arguments": {"date": "明天"}}
+{"query": "不是闲聊，帮我创建提醒，内容：项目材料已经更新，时间：明天下午三点，日期：明天", "tool_code": "reminder.create", "arguments": {"content": "项目材料已经更新", "time": "明天下午三点", "date": "明天"}}
+{"query": "请帮我查询项目状态，名称：李雷", "tool_code": "project.status", "arguments": {"name": "李雷"}}
+{"query": "我想查询项目状态，名称：李雷", "tool_code": "project.status", "arguments": {"name": "李雷"}}
+{"query": "处理一下查询项目状态这个需求，名称：李雷", "tool_code": "project.status", "arguments": {"name": "李雷"}}
+{"query": "先查询项目状态，信息稍后补充", "tool_code": "project.status", "arguments": {}}
+{"query": "不是闲聊，帮我查询项目状态，名称：李雷", "tool_code": "project.status", "arguments": {"name": "李雷"}}
+{"query": "请帮我创建笔记，内容：项目材料已经更新", "tool_code": "note.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想创建笔记，内容：项目材料已经更新", "tool_code": "note.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下创建笔记这个需求，内容：项目材料已经更新", "tool_code": "note.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先创建笔记，信息稍后补充", "tool_code": "note.create", "arguments": {}}
+{"query": "不是闲聊，帮我创建笔记，内容：项目材料已经更新", "tool_code": "note.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我搜索笔记，查询：季度报告", "tool_code": "note.search", "arguments": {"query": "季度报告"}}
+{"query": "我想搜索笔记，查询：季度报告", "tool_code": "note.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下搜索笔记这个需求，查询：季度报告", "tool_code": "note.search", "arguments": {"query": "季度报告"}}
+{"query": "先搜索笔记，信息稍后补充", "tool_code": "note.search", "arguments": {}}
+{"query": "不是闲聊，帮我搜索笔记，查询：季度报告", "tool_code": "note.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我创建表单，标题：周会安排，内容：项目材料已经更新", "tool_code": "form.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想创建表单，标题：周会安排，内容：项目材料已经更新", "tool_code": "form.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下创建表单这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "form.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先创建表单，内容：项目材料已经更新", "tool_code": "form.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我创建表单，标题：周会安排，内容：项目材料已经更新", "tool_code": "form.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我生成报告，标题：周会安排，内容：项目材料已经更新", "tool_code": "report.generate", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想生成报告，标题：周会安排，内容：项目材料已经更新", "tool_code": "report.generate", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下生成报告这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "report.generate", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先生成报告，内容：项目材料已经更新", "tool_code": "report.generate", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我生成报告，标题：周会安排，内容：项目材料已经更新", "tool_code": "report.generate", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我发送消息，收件人：张三，内容：项目材料已经更新", "tool_code": "message.send", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "我想发送消息，收件人：张三，内容：项目材料已经更新", "tool_code": "message.send", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "处理一下发送消息这个需求，收件人：张三，内容：项目材料已经更新", "tool_code": "message.send", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "先发送消息，信息稍后补充", "tool_code": "message.send", "arguments": {}}
+{"query": "不是闲聊，帮我发送消息，收件人：张三，内容：项目材料已经更新", "tool_code": "message.send", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "请帮我搜索消息，查询：季度报告", "tool_code": "message.search", "arguments": {"query": "季度报告"}}
+{"query": "我想搜索消息，查询：季度报告", "tool_code": "message.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下搜索消息这个需求，查询：季度报告", "tool_code": "message.search", "arguments": {"query": "季度报告"}}
+{"query": "先搜索消息，信息稍后补充", "tool_code": "message.search", "arguments": {}}
+{"query": "不是闲聊，帮我搜索消息，查询：季度报告", "tool_code": "message.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我发送短信，收件人：张三，内容：项目材料已经更新", "tool_code": "sms.send", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "我想发送短信，收件人：张三，内容：项目材料已经更新", "tool_code": "sms.send", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "处理一下发送短信这个需求，收件人：张三，内容：项目材料已经更新", "tool_code": "sms.send", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "先发送短信，信息稍后补充", "tool_code": "sms.send", "arguments": {}}
+{"query": "不是闲聊，帮我发送短信，收件人：张三，内容：项目材料已经更新", "tool_code": "sms.send", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "请帮我拨打电话，收件人：张三", "tool_code": "phone.call", "arguments": {"recipient": "张三"}}
+{"query": "我想拨打电话，收件人：张三", "tool_code": "phone.call", "arguments": {"recipient": "张三"}}
+{"query": "处理一下拨打电话这个需求，收件人：张三", "tool_code": "phone.call", "arguments": {"recipient": "张三"}}
+{"query": "先拨打电话，信息稍后补充", "tool_code": "phone.call", "arguments": {}}
+{"query": "不是闲聊，帮我拨打电话，收件人：张三", "tool_code": "phone.call", "arguments": {"recipient": "张三"}}
+{"query": "请帮我新建联系人，内容：项目材料已经更新", "tool_code": "contact.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想新建联系人，内容：项目材料已经更新", "tool_code": "contact.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下新建联系人这个需求，内容：项目材料已经更新", "tool_code": "contact.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先新建联系人，信息稍后补充", "tool_code": "contact.create", "arguments": {}}
+{"query": "不是闲聊，帮我新建联系人，内容：项目材料已经更新", "tool_code": "contact.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我创建群聊，查询：季度报告", "tool_code": "group.create", "arguments": {"query": "季度报告"}}
+{"query": "我想创建群聊，查询：季度报告", "tool_code": "group.create", "arguments": {"query": "季度报告"}}
+{"query": "处理一下创建群聊这个需求，查询：季度报告", "tool_code": "group.create", "arguments": {"query": "季度报告"}}
+{"query": "先创建群聊，信息稍后补充", "tool_code": "group.create", "arguments": {}}
+{"query": "不是闲聊，帮我创建群聊，查询：季度报告", "tool_code": "group.create", "arguments": {"query": "季度报告"}}
+{"query": "请帮我发送群消息，标题：周会安排，内容：项目材料已经更新", "tool_code": "group.message", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想发送群消息，标题：周会安排，内容：项目材料已经更新", "tool_code": "group.message", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下发送群消息这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "group.message", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先发送群消息，标题：周会安排", "tool_code": "group.message", "arguments": {"title": "周会安排"}}
+{"query": "不是闲聊，帮我发送群消息，标题：周会安排，内容：项目材料已经更新", "tool_code": "group.message", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我搜索聊天记录，查询：季度报告", "tool_code": "chat.search", "arguments": {"query": "季度报告"}}
+{"query": "我想搜索聊天记录，查询：季度报告", "tool_code": "chat.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下搜索聊天记录这个需求，查询：季度报告", "tool_code": "chat.search", "arguments": {"query": "季度报告"}}
+{"query": "先搜索聊天记录，信息稍后补充", "tool_code": "chat.search", "arguments": {}}
+{"query": "不是闲聊，帮我搜索聊天记录，查询：季度报告", "tool_code": "chat.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我发起视频通话，收件人：张三", "tool_code": "video_call.start", "arguments": {"recipient": "张三"}}
+{"query": "我想发起视频通话，收件人：张三", "tool_code": "video_call.start", "arguments": {"recipient": "张三"}}
+{"query": "处理一下发起视频通话这个需求，收件人：张三", "tool_code": "video_call.start", "arguments": {"recipient": "张三"}}
+{"query": "先发起视频通话，信息稍后补充", "tool_code": "video_call.start", "arguments": {}}
+{"query": "不是闲聊，帮我发起视频通话，收件人：张三", "tool_code": "video_call.start", "arguments": {"recipient": "张三"}}
+{"query": "请帮我检查语音留言，名称：李雷", "tool_code": "voicemail.check", "arguments": {"name": "李雷"}}
+{"query": "我想检查语音留言，名称：李雷", "tool_code": "voicemail.check", "arguments": {"name": "李雷"}}
+{"query": "处理一下检查语音留言这个需求，名称：李雷", "tool_code": "voicemail.check", "arguments": {"name": "李雷"}}
+{"query": "先检查语音留言，名称：李雷", "tool_code": "voicemail.check", "arguments": {"name": "李雷"}}
+{"query": "不是闲聊，帮我检查语音留言，名称：李雷", "tool_code": "voicemail.check", "arguments": {"name": "李雷"}}
+{"query": "请帮我发送公告，标题：周会安排，内容：项目材料已经更新", "tool_code": "broadcast.send", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想发送公告，标题：周会安排，内容：项目材料已经更新", "tool_code": "broadcast.send", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下发送公告这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "broadcast.send", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先发送公告，标题：周会安排", "tool_code": "broadcast.send", "arguments": {"title": "周会安排"}}
+{"query": "不是闲聊，帮我发送公告，标题：周会安排，内容：项目材料已经更新", "tool_code": "broadcast.send", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我发送 Slack 消息，收件人：张三，内容：项目材料已经更新", "tool_code": "slack.message", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "我想发送Slack消息，收件人：张三，内容：项目材料已经更新", "tool_code": "slack.message", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "处理一下发送 Slack 消息这个需求，收件人：张三，内容：项目材料已经更新", "tool_code": "slack.message", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "先发送 Slack 消息，信息稍后补充", "tool_code": "slack.message", "arguments": {}}
+{"query": "不是闲聊，帮我发送 Slack 消息，收件人：张三，内容：项目材料已经更新", "tool_code": "slack.message", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "请帮我发送 Teams 消息，收件人：张三，内容：项目材料已经更新", "tool_code": "teams.message", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "我想发送Teams消息，收件人：张三，内容：项目材料已经更新", "tool_code": "teams.message", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "处理一下发送 Teams 消息这个需求，收件人：张三，内容：项目材料已经更新", "tool_code": "teams.message", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "先发送 Teams 消息，信息稍后补充", "tool_code": "teams.message", "arguments": {}}
+{"query": "不是闲聊，帮我发送 Teams 消息，收件人：张三，内容：项目材料已经更新", "tool_code": "teams.message", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "请帮我发布动态，标题：周会安排，内容：项目材料已经更新", "tool_code": "social.post", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想发布动态，标题：周会安排，内容：项目材料已经更新", "tool_code": "social.post", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下发布动态这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "social.post", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先发布动态，标题：周会安排", "tool_code": "social.post", "arguments": {"title": "周会安排"}}
+{"query": "不是闲聊，帮我发布动态，标题：周会安排，内容：项目材料已经更新", "tool_code": "social.post", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我回复客户，收件人：张三，内容：项目材料已经更新", "tool_code": "customer.reply", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "我想回复客户，收件人：张三，内容：项目材料已经更新", "tool_code": "customer.reply", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "处理一下回复客户这个需求，收件人：张三，内容：项目材料已经更新", "tool_code": "customer.reply", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "先回复客户，信息稍后补充", "tool_code": "customer.reply", "arguments": {}}
+{"query": "不是闲聊，帮我回复客户，收件人：张三，内容：项目材料已经更新", "tool_code": "customer.reply", "arguments": {"recipient": "张三", "content": "项目材料已经更新"}}
+{"query": "请帮我查询天气，地点：上海，日期：明天", "tool_code": "weather.query", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "我想查询天气，地点：上海，日期：明天", "tool_code": "weather.query", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "处理一下查询天气这个需求，地点：上海，日期：明天", "tool_code": "weather.query", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "先查询天气，日期：明天", "tool_code": "weather.query", "arguments": {"date": "明天"}}
+{"query": "不是闲聊，帮我查询天气，地点：上海，日期：明天", "tool_code": "weather.query", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "请帮我开始导航，目的地：虹桥火车站，起点：公司", "tool_code": "navigation.start", "arguments": {"destination": "虹桥火车站", "origin": "公司"}}
+{"query": "我想开始导航，目的地：虹桥火车站，起点：公司", "tool_code": "navigation.start", "arguments": {"destination": "虹桥火车站", "origin": "公司"}}
+{"query": "处理一下开始导航这个需求，目的地：虹桥火车站，起点：公司", "tool_code": "navigation.start", "arguments": {"destination": "虹桥火车站", "origin": "公司"}}
+{"query": "先开始导航，起点：公司", "tool_code": "navigation.start", "arguments": {"origin": "公司"}}
+{"query": "不是闲聊，帮我开始导航，目的地：虹桥火车站，起点：公司", "tool_code": "navigation.start", "arguments": {"destination": "虹桥火车站", "origin": "公司"}}
+{"query": "请帮我呼叫打车，目的地：虹桥火车站，起点：公司", "tool_code": "taxi.call", "arguments": {"destination": "虹桥火车站", "origin": "公司"}}
+{"query": "我想呼叫打车，目的地：虹桥火车站，起点：公司", "tool_code": "taxi.call", "arguments": {"destination": "虹桥火车站", "origin": "公司"}}
+{"query": "处理一下呼叫打车这个需求，目的地：虹桥火车站，起点：公司", "tool_code": "taxi.call", "arguments": {"destination": "虹桥火车站", "origin": "公司"}}
+{"query": "先呼叫打车，起点：公司", "tool_code": "taxi.call", "arguments": {"origin": "公司"}}
+{"query": "不是闲聊，帮我呼叫打车，目的地：虹桥火车站，起点：公司", "tool_code": "taxi.call", "arguments": {"destination": "虹桥火车站", "origin": "公司"}}
+{"query": "请帮我点外卖，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "food.order", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "我想点外卖，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "food.order", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "处理一下点外卖这个需求，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "food.order", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "先点外卖，地点：上海，时间：明天下午三点", "tool_code": "food.order", "arguments": {"location": "上海", "time": "明天下午三点"}}
+{"query": "不是闲聊，帮我点外卖，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "food.order", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "请帮我搜索酒店，地点：上海，日期：明天", "tool_code": "hotel.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "我想搜索酒店，地点：上海，日期：明天", "tool_code": "hotel.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "处理一下搜索酒店这个需求，地点：上海，日期：明天", "tool_code": "hotel.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "先搜索酒店，日期：明天", "tool_code": "hotel.search", "arguments": {"date": "明天"}}
+{"query": "不是闲聊，帮我搜索酒店，地点：上海，日期：明天", "tool_code": "hotel.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "请帮我搜索机票，地点：上海，日期：明天", "tool_code": "flight.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "我想搜索机票，地点：上海，日期：明天", "tool_code": "flight.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "处理一下搜索机票这个需求，地点：上海，日期：明天", "tool_code": "flight.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "先搜索机票，日期：明天", "tool_code": "flight.search", "arguments": {"date": "明天"}}
+{"query": "不是闲聊，帮我搜索机票，地点：上海，日期：明天", "tool_code": "flight.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "请帮我搜索火车票，地点：上海，日期：明天", "tool_code": "train.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "我想搜索火车票，地点：上海，日期：明天", "tool_code": "train.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "处理一下搜索火车票这个需求，地点：上海，日期：明天", "tool_code": "train.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "先搜索火车票，日期：明天", "tool_code": "train.search", "arguments": {"date": "明天"}}
+{"query": "不是闲聊，帮我搜索火车票，地点：上海，日期：明天", "tool_code": "train.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "请帮我查询快递，查询：季度报告", "tool_code": "delivery.track", "arguments": {"query": "季度报告"}}
+{"query": "我想查询快递，查询：季度报告", "tool_code": "delivery.track", "arguments": {"query": "季度报告"}}
+{"query": "处理一下查询快递这个需求，查询：季度报告", "tool_code": "delivery.track", "arguments": {"query": "季度报告"}}
+{"query": "先查询快递，信息稍后补充", "tool_code": "delivery.track", "arguments": {}}
+{"query": "不是闲聊，帮我查询快递，查询：季度报告", "tool_code": "delivery.track", "arguments": {"query": "季度报告"}}
+{"query": "请帮我寄送包裹，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "package.send", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "我想寄送包裹，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "package.send", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "处理一下寄送包裹这个需求，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "package.send", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "先寄送包裹，地点：上海，时间：明天下午三点", "tool_code": "package.send", "arguments": {"location": "上海", "time": "明天下午三点"}}
+{"query": "不是闲聊，帮我寄送包裹，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "package.send", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "请帮我预订餐厅，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "restaurant.book", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "我想预订餐厅，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "restaurant.book", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "处理一下预订餐厅这个需求，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "restaurant.book", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "先预订餐厅，时间：明天下午三点，地点：上海", "tool_code": "restaurant.book", "arguments": {"time": "明天下午三点", "location": "上海"}}
+{"query": "不是闲聊，帮我预订餐厅，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "restaurant.book", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "请帮我购买电影票，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "movie.ticket", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "我想购买电影票，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "movie.ticket", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "处理一下购买电影票这个需求，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "movie.ticket", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "先购买电影票，地点：上海，时间：明天下午三点", "tool_code": "movie.ticket", "arguments": {"location": "上海", "time": "明天下午三点"}}
+{"query": "不是闲聊，帮我购买电影票，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "movie.ticket", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "请帮我预约医生，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "doctor.appointment", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "我想预约医生，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "doctor.appointment", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "处理一下预约医生这个需求，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "doctor.appointment", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "先预约医生，时间：明天下午三点，地点：上海", "tool_code": "doctor.appointment", "arguments": {"time": "明天下午三点", "location": "上海"}}
+{"query": "不是闲聊，帮我预约医生，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海", "tool_code": "doctor.appointment", "arguments": {"title": "周会安排", "date": "明天", "time": "明天下午三点", "location": "上海"}}
+{"query": "请帮我查找药店，地点：上海，日期：明天", "tool_code": "pharmacy.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "我想查找药店，地点：上海，日期：明天", "tool_code": "pharmacy.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "处理一下查找药店这个需求，地点：上海，日期：明天", "tool_code": "pharmacy.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "先查找药店，日期：明天", "tool_code": "pharmacy.search", "arguments": {"date": "明天"}}
+{"query": "不是闲聊，帮我查找药店，地点：上海，日期：明天", "tool_code": "pharmacy.search", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "请帮我银行转账，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "bank.transfer", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "我想银行转账，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "bank.transfer", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "处理一下银行转账这个需求，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "bank.transfer", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "先银行转账，内容：项目材料已经更新", "tool_code": "bank.transfer", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我银行转账，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "bank.transfer", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "请帮我缴纳账单，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "bill.pay", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "我想缴纳账单，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "bill.pay", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "处理一下缴纳账单这个需求，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "bill.pay", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "先缴纳账单，内容：项目材料已经更新", "tool_code": "bill.pay", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我缴纳账单，收件人：张三，数量：80，内容：项目材料已经更新", "tool_code": "bill.pay", "arguments": {"recipient": "张三", "amount": "80", "content": "项目材料已经更新"}}
+{"query": "请帮我搜索商品，查询：季度报告", "tool_code": "shopping.search", "arguments": {"query": "季度报告"}}
+{"query": "我想搜索商品，查询：季度报告", "tool_code": "shopping.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下搜索商品这个需求，查询：季度报告", "tool_code": "shopping.search", "arguments": {"query": "季度报告"}}
+{"query": "先搜索商品，信息稍后补充", "tool_code": "shopping.search", "arguments": {}}
+{"query": "不是闲聊，帮我搜索商品，查询：季度报告", "tool_code": "shopping.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我搜索优惠券，查询：季度报告", "tool_code": "coupon.search", "arguments": {"query": "季度报告"}}
+{"query": "我想搜索优惠券，查询：季度报告", "tool_code": "coupon.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下搜索优惠券这个需求，查询：季度报告", "tool_code": "coupon.search", "arguments": {"query": "季度报告"}}
+{"query": "先搜索优惠券，信息稍后补充", "tool_code": "coupon.search", "arguments": {}}
+{"query": "不是闲聊，帮我搜索优惠券，查询：季度报告", "tool_code": "coupon.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我记录运动，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "fitness.log", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "我想记录运动，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "fitness.log", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "处理一下记录运动这个需求，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "fitness.log", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "先记录运动，数量：80，日期：明天", "tool_code": "fitness.log", "arguments": {"amount": "80", "date": "明天"}}
+{"query": "不是闲聊，帮我记录运动，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "fitness.log", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "请帮我记录饮水，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "water.log", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "我想记录饮水，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "water.log", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "处理一下记录饮水这个需求，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "water.log", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "先记录饮水，数量：80，日期：明天", "tool_code": "water.log", "arguments": {"amount": "80", "date": "明天"}}
+{"query": "不是闲聊，帮我记录饮水，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "water.log", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "请帮我打卡习惯，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "habit.track", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "我想打卡习惯，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "habit.track", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "处理一下打卡习惯这个需求，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "habit.track", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "先打卡习惯，数量：80，日期：明天", "tool_code": "habit.track", "arguments": {"amount": "80", "date": "明天"}}
+{"query": "不是闲聊，帮我打卡习惯，内容：项目材料已经更新，数量：80，日期：明天", "tool_code": "habit.track", "arguments": {"content": "项目材料已经更新", "amount": "80", "date": "明天"}}
+{"query": "请帮我查找停车场，地点：上海，日期：明天", "tool_code": "parking.find", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "我想查找停车场，地点：上海，日期：明天", "tool_code": "parking.find", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "处理一下查找停车场这个需求，地点：上海，日期：明天", "tool_code": "parking.find", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "先查找停车场，日期：明天", "tool_code": "parking.find", "arguments": {"date": "明天"}}
+{"query": "不是闲聊，帮我查找停车场，地点：上海，日期：明天", "tool_code": "parking.find", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "请帮我查找加油站，地点：上海，日期：明天", "tool_code": "gas_station.find", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "我想查找加油站，地点：上海，日期：明天", "tool_code": "gas_station.find", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "处理一下查找加油站这个需求，地点：上海，日期：明天", "tool_code": "gas_station.find", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "先查找加油站，日期：明天", "tool_code": "gas_station.find", "arguments": {"date": "明天"}}
+{"query": "不是闲聊，帮我查找加油站，地点：上海，日期：明天", "tool_code": "gas_station.find", "arguments": {"location": "上海", "date": "明天"}}
+{"query": "请帮我搜索活动，查询：季度报告", "tool_code": "event.search", "arguments": {"query": "季度报告"}}
+{"query": "我想搜索活动，查询：季度报告", "tool_code": "event.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下搜索活动这个需求，查询：季度报告", "tool_code": "event.search", "arguments": {"query": "季度报告"}}
+{"query": "先搜索活动，信息稍后补充", "tool_code": "event.search", "arguments": {}}
+{"query": "不是闲聊，帮我搜索活动，查询：季度报告", "tool_code": "event.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我预约洗衣取送，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "laundry.pickup", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "我想预约洗衣取送，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "laundry.pickup", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "处理一下预约洗衣取送这个需求，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "laundry.pickup", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "先预约洗衣取送，地点：上海，时间：明天下午三点", "tool_code": "laundry.pickup", "arguments": {"location": "上海", "time": "明天下午三点"}}
+{"query": "不是闲聊，帮我预约洗衣取送，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "laundry.pickup", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "请帮我预约上门维修，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "home_repair.book", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "我想预约上门维修，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "home_repair.book", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "处理一下预约上门维修这个需求，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "home_repair.book", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "先预约上门维修，地点：上海，时间：明天下午三点", "tool_code": "home_repair.book", "arguments": {"location": "上海", "time": "明天下午三点"}}
+{"query": "不是闲聊，帮我预约上门维修，查询：季度报告，地点：上海，时间：明天下午三点", "tool_code": "home_repair.book", "arguments": {"query": "季度报告", "location": "上海", "time": "明天下午三点"}}
+{"query": "请帮我播放音乐，查询：季度报告", "tool_code": "music.play", "arguments": {"query": "季度报告"}}
+{"query": "我想播放音乐，查询：季度报告", "tool_code": "music.play", "arguments": {"query": "季度报告"}}
+{"query": "处理一下播放音乐这个需求，查询：季度报告", "tool_code": "music.play", "arguments": {"query": "季度报告"}}
+{"query": "先播放音乐，信息稍后补充", "tool_code": "music.play", "arguments": {}}
+{"query": "不是闲聊，帮我播放音乐，查询：季度报告", "tool_code": "music.play", "arguments": {"query": "季度报告"}}
+{"query": "请帮我播放播客，查询：季度报告", "tool_code": "podcast.play", "arguments": {"query": "季度报告"}}
+{"query": "我想播放播客，查询：季度报告", "tool_code": "podcast.play", "arguments": {"query": "季度报告"}}
+{"query": "处理一下播放播客这个需求，查询：季度报告", "tool_code": "podcast.play", "arguments": {"query": "季度报告"}}
+{"query": "先播放播客，信息稍后补充", "tool_code": "podcast.play", "arguments": {}}
+{"query": "不是闲聊，帮我播放播客，查询：季度报告", "tool_code": "podcast.play", "arguments": {"query": "季度报告"}}
+{"query": "请帮我播放视频，查询：季度报告", "tool_code": "video.play", "arguments": {"query": "季度报告"}}
+{"query": "我想播放视频，查询：季度报告", "tool_code": "video.play", "arguments": {"query": "季度报告"}}
+{"query": "处理一下播放视频这个需求，查询：季度报告", "tool_code": "video.play", "arguments": {"query": "季度报告"}}
+{"query": "先播放视频，信息稍后补充", "tool_code": "video.play", "arguments": {}}
+{"query": "不是闲聊，帮我播放视频，查询：季度报告", "tool_code": "video.play", "arguments": {"query": "季度报告"}}
+{"query": "请帮我搜索相册，查询：季度报告", "tool_code": "album.search", "arguments": {"query": "季度报告"}}
+{"query": "我想搜索相册，查询：季度报告", "tool_code": "album.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下搜索相册这个需求，查询：季度报告", "tool_code": "album.search", "arguments": {"query": "季度报告"}}
+{"query": "先搜索相册，信息稍后补充", "tool_code": "album.search", "arguments": {}}
+{"query": "不是闲聊，帮我搜索相册，查询：季度报告", "tool_code": "album.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我查找照片，查询：季度报告", "tool_code": "photo.find", "arguments": {"query": "季度报告"}}
+{"query": "我想查找照片，查询：季度报告", "tool_code": "photo.find", "arguments": {"query": "季度报告"}}
+{"query": "处理一下查找照片这个需求，查询：季度报告", "tool_code": "photo.find", "arguments": {"query": "季度报告"}}
+{"query": "先查找照片，信息稍后补充", "tool_code": "photo.find", "arguments": {}}
+{"query": "不是闲聊，帮我查找照片，查询：季度报告", "tool_code": "photo.find", "arguments": {"query": "季度报告"}}
+{"query": "请帮我编辑照片，文件：方案.docx，内容：项目材料已经更新", "tool_code": "photo.edit", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想编辑照片，文件：方案.docx，内容：项目材料已经更新", "tool_code": "photo.edit", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下编辑照片这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "photo.edit", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先编辑照片，内容：项目材料已经更新", "tool_code": "photo.edit", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我编辑照片，文件：方案.docx，内容：项目材料已经更新", "tool_code": "photo.edit", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我播放照片幻灯片，查询：季度报告", "tool_code": "photo.slideshow", "arguments": {"query": "季度报告"}}
+{"query": "我想播放照片幻灯片，查询：季度报告", "tool_code": "photo.slideshow", "arguments": {"query": "季度报告"}}
+{"query": "处理一下播放照片幻灯片这个需求，查询：季度报告", "tool_code": "photo.slideshow", "arguments": {"query": "季度报告"}}
+{"query": "先播放照片幻灯片，信息稍后补充", "tool_code": "photo.slideshow", "arguments": {}}
+{"query": "不是闲聊，帮我播放照片幻灯片，查询：季度报告", "tool_code": "photo.slideshow", "arguments": {"query": "季度报告"}}
+{"query": "请帮我打开相机，时长：30 分钟", "tool_code": "camera.open", "arguments": {"duration": "30 分钟"}}
+{"query": "我想打开相机，时长：30 分钟", "tool_code": "camera.open", "arguments": {"duration": "30 分钟"}}
+{"query": "处理一下打开相机这个需求，时长：30 分钟", "tool_code": "camera.open", "arguments": {"duration": "30 分钟"}}
+{"query": "先打开相机，时长：30 分钟", "tool_code": "camera.open", "arguments": {"duration": "30 分钟"}}
+{"query": "不是闲聊，帮我打开相机，时长：30 分钟", "tool_code": "camera.open", "arguments": {"duration": "30 分钟"}}
+{"query": "请帮我开始录音，时长：30 分钟", "tool_code": "recording.start", "arguments": {"duration": "30 分钟"}}
+{"query": "我想开始录音，时长：30 分钟", "tool_code": "recording.start", "arguments": {"duration": "30 分钟"}}
+{"query": "处理一下开始录音这个需求，时长：30 分钟", "tool_code": "recording.start", "arguments": {"duration": "30 分钟"}}
+{"query": "先开始录音，时长：30 分钟", "tool_code": "recording.start", "arguments": {"duration": "30 分钟"}}
+{"query": "不是闲聊，帮我开始录音，时长：30 分钟", "tool_code": "recording.start", "arguments": {"duration": "30 分钟"}}
+{"query": "请帮我转写录音，文件：方案.docx，内容：项目材料已经更新", "tool_code": "recording.transcribe", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想转写录音，文件：方案.docx，内容：项目材料已经更新", "tool_code": "recording.transcribe", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下转写录音这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "recording.transcribe", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先转写录音，内容：项目材料已经更新", "tool_code": "recording.transcribe", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我转写录音，文件：方案.docx，内容：项目材料已经更新", "tool_code": "recording.transcribe", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我播放有声书，查询：季度报告", "tool_code": "audiobook.play", "arguments": {"query": "季度报告"}}
+{"query": "我想播放有声书，查询：季度报告", "tool_code": "audiobook.play", "arguments": {"query": "季度报告"}}
+{"query": "处理一下播放有声书这个需求，查询：季度报告", "tool_code": "audiobook.play", "arguments": {"query": "季度报告"}}
+{"query": "先播放有声书，信息稍后补充", "tool_code": "audiobook.play", "arguments": {}}
+{"query": "不是闲聊，帮我播放有声书，查询：季度报告", "tool_code": "audiobook.play", "arguments": {"query": "季度报告"}}
+{"query": "请帮我打开电子书，查询：季度报告", "tool_code": "ebook.open", "arguments": {"query": "季度报告"}}
+{"query": "我想打开电子书，查询：季度报告", "tool_code": "ebook.open", "arguments": {"query": "季度报告"}}
+{"query": "处理一下打开电子书这个需求，查询：季度报告", "tool_code": "ebook.open", "arguments": {"query": "季度报告"}}
+{"query": "先打开电子书，信息稍后补充", "tool_code": "ebook.open", "arguments": {}}
+{"query": "不是闲聊，帮我打开电子书，查询：季度报告", "tool_code": "ebook.open", "arguments": {"query": "季度报告"}}
+{"query": "请帮我创建歌单，标题：周会安排，内容：项目材料已经更新", "tool_code": "playlist.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想创建歌单，标题：周会安排，内容：项目材料已经更新", "tool_code": "playlist.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下创建歌单这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "playlist.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先创建歌单，内容：项目材料已经更新", "tool_code": "playlist.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我创建歌单，标题：周会安排，内容：项目材料已经更新", "tool_code": "playlist.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我播放电台，查询：季度报告", "tool_code": "radio.play", "arguments": {"query": "季度报告"}}
+{"query": "我想播放电台，查询：季度报告", "tool_code": "radio.play", "arguments": {"query": "季度报告"}}
+{"query": "处理一下播放电台这个需求，查询：季度报告", "tool_code": "radio.play", "arguments": {"query": "季度报告"}}
+{"query": "先播放电台，信息稍后补充", "tool_code": "radio.play", "arguments": {}}
+{"query": "不是闲聊，帮我播放电台，查询：季度报告", "tool_code": "radio.play", "arguments": {"query": "季度报告"}}
+{"query": "请帮我录制屏幕，时长：30 分钟", "tool_code": "screen.record", "arguments": {"duration": "30 分钟"}}
+{"query": "我想录制屏幕，时长：30 分钟", "tool_code": "screen.record", "arguments": {"duration": "30 分钟"}}
+{"query": "处理一下录制屏幕这个需求，时长：30 分钟", "tool_code": "screen.record", "arguments": {"duration": "30 分钟"}}
+{"query": "先录制屏幕，时长：30 分钟", "tool_code": "screen.record", "arguments": {"duration": "30 分钟"}}
+{"query": "不是闲聊，帮我录制屏幕，时长：30 分钟", "tool_code": "screen.record", "arguments": {"duration": "30 分钟"}}
+{"query": "请帮我生成字幕，查询：季度报告", "tool_code": "subtitle.generate", "arguments": {"query": "季度报告"}}
+{"query": "我想生成字幕，查询：季度报告", "tool_code": "subtitle.generate", "arguments": {"query": "季度报告"}}
+{"query": "处理一下生成字幕这个需求，查询：季度报告", "tool_code": "subtitle.generate", "arguments": {"query": "季度报告"}}
+{"query": "先生成字幕，信息稍后补充", "tool_code": "subtitle.generate", "arguments": {}}
+{"query": "不是闲聊，帮我生成字幕，查询：季度报告", "tool_code": "subtitle.generate", "arguments": {"query": "季度报告"}}
+{"query": "请帮我生成图片，查询：季度报告", "tool_code": "image.generate", "arguments": {"query": "季度报告"}}
+{"query": "我想生成图片，查询：季度报告", "tool_code": "image.generate", "arguments": {"query": "季度报告"}}
+{"query": "处理一下生成图片这个需求，查询：季度报告", "tool_code": "image.generate", "arguments": {"query": "季度报告"}}
+{"query": "先生成图片，信息稍后补充", "tool_code": "image.generate", "arguments": {}}
+{"query": "不是闲聊，帮我生成图片，查询：季度报告", "tool_code": "image.generate", "arguments": {"query": "季度报告"}}
+{"query": "请帮我剪辑视频，文件：方案.docx，内容：项目材料已经更新", "tool_code": "video.edit", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想剪辑视频，文件：方案.docx，内容：项目材料已经更新", "tool_code": "video.edit", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下剪辑视频这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "video.edit", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先剪辑视频，内容：项目材料已经更新", "tool_code": "video.edit", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我剪辑视频，文件：方案.docx，内容：项目材料已经更新", "tool_code": "video.edit", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "请帮我打开灯光，设备：客厅灯", "tool_code": "light.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "我想打开灯光，设备：客厅灯", "tool_code": "light.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下打开灯光这个需求，设备：客厅灯", "tool_code": "light.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "先打开灯光，设备：客厅灯", "tool_code": "light.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我打开灯光，设备：客厅灯", "tool_code": "light.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我关闭灯光，设备：客厅灯", "tool_code": "light.turn_off", "arguments": {"device": "客厅灯"}}
+{"query": "我想关闭灯光，设备：客厅灯", "tool_code": "light.turn_off", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下关闭灯光这个需求，设备：客厅灯", "tool_code": "light.turn_off", "arguments": {"device": "客厅灯"}}
+{"query": "先关闭灯光，设备：客厅灯", "tool_code": "light.turn_off", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我关闭灯光，设备：客厅灯", "tool_code": "light.turn_off", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我调节灯光亮度，设备：客厅灯，数量：80", "tool_code": "light.set_brightness", "arguments": {"device": "客厅灯", "amount": "80"}}
+{"query": "我想调节灯光亮度，设备：客厅灯，数量：80", "tool_code": "light.set_brightness", "arguments": {"device": "客厅灯", "amount": "80"}}
+{"query": "处理一下调节灯光亮度这个需求，设备：客厅灯，数量：80", "tool_code": "light.set_brightness", "arguments": {"device": "客厅灯", "amount": "80"}}
+{"query": "先调节灯光亮度，设备：客厅灯", "tool_code": "light.set_brightness", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我调节灯光亮度，设备：客厅灯，数量：80", "tool_code": "light.set_brightness", "arguments": {"device": "客厅灯", "amount": "80"}}
+{"query": "请帮我设置空调温度，设备：客厅灯，温度：26 度", "tool_code": "ac.set_temperature", "arguments": {"device": "客厅灯", "temperature": "26 度"}}
+{"query": "我想设置空调温度，设备：客厅灯，温度：26 度", "tool_code": "ac.set_temperature", "arguments": {"device": "客厅灯", "temperature": "26 度"}}
+{"query": "处理一下设置空调温度这个需求，设备：客厅灯，温度：26 度", "tool_code": "ac.set_temperature", "arguments": {"device": "客厅灯", "temperature": "26 度"}}
+{"query": "先设置空调温度，设备：客厅灯", "tool_code": "ac.set_temperature", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我设置空调温度，设备：客厅灯，温度：26 度", "tool_code": "ac.set_temperature", "arguments": {"device": "客厅灯", "temperature": "26 度"}}
+{"query": "请帮我打开窗帘，设备：客厅灯", "tool_code": "curtain.open", "arguments": {"device": "客厅灯"}}
+{"query": "我想打开窗帘，设备：客厅灯", "tool_code": "curtain.open", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下打开窗帘这个需求，设备：客厅灯", "tool_code": "curtain.open", "arguments": {"device": "客厅灯"}}
+{"query": "先打开窗帘，设备：客厅灯", "tool_code": "curtain.open", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我打开窗帘，设备：客厅灯", "tool_code": "curtain.open", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我关闭窗帘，设备：客厅灯", "tool_code": "curtain.close", "arguments": {"device": "客厅灯"}}
+{"query": "我想关闭窗帘，设备：客厅灯", "tool_code": "curtain.close", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下关闭窗帘这个需求，设备：客厅灯", "tool_code": "curtain.close", "arguments": {"device": "客厅灯"}}
+{"query": "先关闭窗帘，设备：客厅灯", "tool_code": "curtain.close", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我关闭窗帘，设备：客厅灯", "tool_code": "curtain.close", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我打开电视，设备：客厅灯", "tool_code": "tv.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "我想打开电视，设备：客厅灯", "tool_code": "tv.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下打开电视这个需求，设备：客厅灯", "tool_code": "tv.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "先打开电视，设备：客厅灯", "tool_code": "tv.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我打开电视，设备：客厅灯", "tool_code": "tv.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我切换电视频道，设备：客厅灯，查询：季度报告", "tool_code": "tv.channel", "arguments": {"device": "客厅灯", "query": "季度报告"}}
+{"query": "我想切换电视频道，设备：客厅灯，查询：季度报告", "tool_code": "tv.channel", "arguments": {"device": "客厅灯", "query": "季度报告"}}
+{"query": "处理一下切换电视频道这个需求，设备：客厅灯，查询：季度报告", "tool_code": "tv.channel", "arguments": {"device": "客厅灯", "query": "季度报告"}}
+{"query": "先切换电视频道，设备：客厅灯", "tool_code": "tv.channel", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我切换电视频道，设备：客厅灯，查询：季度报告", "tool_code": "tv.channel", "arguments": {"device": "客厅灯", "query": "季度报告"}}
+{"query": "请帮我启动扫地机器人，设备：客厅灯", "tool_code": "robot_vacuum.start", "arguments": {"device": "客厅灯"}}
+{"query": "我想启动扫地机器人，设备：客厅灯", "tool_code": "robot_vacuum.start", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下启动扫地机器人这个需求，设备：客厅灯", "tool_code": "robot_vacuum.start", "arguments": {"device": "客厅灯"}}
+{"query": "先启动扫地机器人，设备：客厅灯", "tool_code": "robot_vacuum.start", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我启动扫地机器人，设备：客厅灯", "tool_code": "robot_vacuum.start", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我查看摄像头，设备：客厅灯", "tool_code": "camera.view", "arguments": {"device": "客厅灯"}}
+{"query": "我想查看摄像头，设备：客厅灯", "tool_code": "camera.view", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下查看摄像头这个需求，设备：客厅灯", "tool_code": "camera.view", "arguments": {"device": "客厅灯"}}
+{"query": "先查看摄像头，设备：客厅灯", "tool_code": "camera.view", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我查看摄像头，设备：客厅灯", "tool_code": "camera.view", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我锁门，设备：客厅灯", "tool_code": "door.lock", "arguments": {"device": "客厅灯"}}
+{"query": "我想锁门，设备：客厅灯", "tool_code": "door.lock", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下锁门这个需求，设备：客厅灯", "tool_code": "door.lock", "arguments": {"device": "客厅灯"}}
+{"query": "先锁门，设备：客厅灯", "tool_code": "door.lock", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我锁门，设备：客厅灯", "tool_code": "door.lock", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我开门锁，设备：客厅灯", "tool_code": "door.unlock", "arguments": {"device": "客厅灯"}}
+{"query": "我想开门锁，设备：客厅灯", "tool_code": "door.unlock", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下开门锁这个需求，设备：客厅灯", "tool_code": "door.unlock", "arguments": {"device": "客厅灯"}}
+{"query": "先开门锁，设备：客厅灯", "tool_code": "door.unlock", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我开门锁，设备：客厅灯", "tool_code": "door.unlock", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我设置恒温器，设备：客厅灯，温度：26 度", "tool_code": "thermostat.set", "arguments": {"device": "客厅灯", "temperature": "26 度"}}
+{"query": "我想设置恒温器，设备：客厅灯，温度：26 度", "tool_code": "thermostat.set", "arguments": {"device": "客厅灯", "temperature": "26 度"}}
+{"query": "处理一下设置恒温器这个需求，设备：客厅灯，温度：26 度", "tool_code": "thermostat.set", "arguments": {"device": "客厅灯", "temperature": "26 度"}}
+{"query": "先设置恒温器，设备：客厅灯", "tool_code": "thermostat.set", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我设置恒温器，设备：客厅灯，温度：26 度", "tool_code": "thermostat.set", "arguments": {"device": "客厅灯", "temperature": "26 度"}}
+{"query": "请帮我设置加湿器，设备：客厅灯", "tool_code": "humidifier.set", "arguments": {"device": "客厅灯"}}
+{"query": "我想设置加湿器，设备：客厅灯", "tool_code": "humidifier.set", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下设置加湿器这个需求，设备：客厅灯", "tool_code": "humidifier.set", "arguments": {"device": "客厅灯"}}
+{"query": "先设置加湿器，设备：客厅灯", "tool_code": "humidifier.set", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我设置加湿器，设备：客厅灯", "tool_code": "humidifier.set", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我打开空气净化器，设备：客厅灯", "tool_code": "purifier.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "我想打开空气净化器，设备：客厅灯", "tool_code": "purifier.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "处理一下打开空气净化器这个需求，设备：客厅灯", "tool_code": "purifier.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "先打开空气净化器，设备：客厅灯", "tool_code": "purifier.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "不是闲聊，帮我打开空气净化器，设备：客厅灯", "tool_code": "purifier.turn_on", "arguments": {"device": "客厅灯"}}
+{"query": "请帮我搜索代码，查询：季度报告", "tool_code": "code.search", "arguments": {"query": "季度报告"}}
+{"query": "我想搜索代码，查询：季度报告", "tool_code": "code.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下搜索代码这个需求，查询：季度报告", "tool_code": "code.search", "arguments": {"query": "季度报告"}}
+{"query": "先搜索代码，信息稍后补充", "tool_code": "code.search", "arguments": {}}
+{"query": "不是闲聊，帮我搜索代码，查询：季度报告", "tool_code": "code.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我运行测试，查询：季度报告", "tool_code": "test.run", "arguments": {"query": "季度报告"}}
+{"query": "我想运行测试，查询：季度报告", "tool_code": "test.run", "arguments": {"query": "季度报告"}}
+{"query": "处理一下运行测试这个需求，查询：季度报告", "tool_code": "test.run", "arguments": {"query": "季度报告"}}
+{"query": "先运行测试，信息稍后补充", "tool_code": "test.run", "arguments": {}}
+{"query": "不是闲聊，帮我运行测试，查询：季度报告", "tool_code": "test.run", "arguments": {"query": "季度报告"}}
+{"query": "请帮我创建 issue，标题：周会安排，内容：项目材料已经更新", "tool_code": "issue.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想创建issue，标题：周会安排，内容：项目材料已经更新", "tool_code": "issue.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下创建 issue这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "issue.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先创建 issue，内容：项目材料已经更新", "tool_code": "issue.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我创建 issue，标题：周会安排，内容：项目材料已经更新", "tool_code": "issue.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我查询 PR，查询：季度报告", "tool_code": "pr.query", "arguments": {"query": "季度报告"}}
+{"query": "我想查询PR，查询：季度报告", "tool_code": "pr.query", "arguments": {"query": "季度报告"}}
+{"query": "处理一下查询 PR这个需求，查询：季度报告", "tool_code": "pr.query", "arguments": {"query": "季度报告"}}
+{"query": "先查询 PR，信息稍后补充", "tool_code": "pr.query", "arguments": {}}
+{"query": "不是闲聊，帮我查询 PR，查询：季度报告", "tool_code": "pr.query", "arguments": {"query": "季度报告"}}
+{"query": "请帮我开始部署，查询：季度报告", "tool_code": "deploy.start", "arguments": {"query": "季度报告"}}
+{"query": "我想开始部署，查询：季度报告", "tool_code": "deploy.start", "arguments": {"query": "季度报告"}}
+{"query": "处理一下开始部署这个需求，查询：季度报告", "tool_code": "deploy.start", "arguments": {"query": "季度报告"}}
+{"query": "先开始部署，信息稍后补充", "tool_code": "deploy.start", "arguments": {}}
+{"query": "不是闲聊，帮我开始部署，查询：季度报告", "tool_code": "deploy.start", "arguments": {"query": "季度报告"}}
+{"query": "请帮我检索日志，查询：季度报告", "tool_code": "logs.search", "arguments": {"query": "季度报告"}}
+{"query": "我想检索日志，查询：季度报告", "tool_code": "logs.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下检索日志这个需求，查询：季度报告", "tool_code": "logs.search", "arguments": {"query": "季度报告"}}
+{"query": "先检索日志，信息稍后补充", "tool_code": "logs.search", "arguments": {}}
+{"query": "不是闲聊，帮我检索日志，查询：季度报告", "tool_code": "logs.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我查询 CI 状态，查询：季度报告", "tool_code": "ci.status", "arguments": {"query": "季度报告"}}
+{"query": "我想查询CI状态，查询：季度报告", "tool_code": "ci.status", "arguments": {"query": "季度报告"}}
+{"query": "处理一下查询 CI 状态这个需求，查询：季度报告", "tool_code": "ci.status", "arguments": {"query": "季度报告"}}
+{"query": "先查询 CI 状态，信息稍后补充", "tool_code": "ci.status", "arguments": {}}
+{"query": "不是闲聊，帮我查询 CI 状态，查询：季度报告", "tool_code": "ci.status", "arguments": {"query": "季度报告"}}
+{"query": "请帮我创建分支，标题：周会安排，内容：项目材料已经更新", "tool_code": "branch.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想创建分支，标题：周会安排，内容：项目材料已经更新", "tool_code": "branch.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下创建分支这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "branch.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先创建分支，内容：项目材料已经更新", "tool_code": "branch.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我创建分支，标题：周会安排，内容：项目材料已经更新", "tool_code": "branch.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我总结提交，查询：季度报告", "tool_code": "commit.summarize", "arguments": {"query": "季度报告"}}
+{"query": "我想总结提交，查询：季度报告", "tool_code": "commit.summarize", "arguments": {"query": "季度报告"}}
+{"query": "处理一下总结提交这个需求，查询：季度报告", "tool_code": "commit.summarize", "arguments": {"query": "季度报告"}}
+{"query": "先总结提交，信息稍后补充", "tool_code": "commit.summarize", "arguments": {}}
+{"query": "不是闲聊，帮我总结提交，查询：季度报告", "tool_code": "commit.summarize", "arguments": {"query": "季度报告"}}
+{"query": "请帮我查询数据库，查询：季度报告", "tool_code": "database.query", "arguments": {"query": "季度报告"}}
+{"query": "我想查询数据库，查询：季度报告", "tool_code": "database.query", "arguments": {"query": "季度报告"}}
+{"query": "处理一下查询数据库这个需求，查询：季度报告", "tool_code": "database.query", "arguments": {"query": "季度报告"}}
+{"query": "先查询数据库，信息稍后补充", "tool_code": "database.query", "arguments": {}}
+{"query": "不是闲聊，帮我查询数据库，查询：季度报告", "tool_code": "database.query", "arguments": {"query": "季度报告"}}
+{"query": "请帮我调用 API，查询：季度报告", "tool_code": "api.call", "arguments": {"query": "季度报告"}}
+{"query": "我想调用API，查询：季度报告", "tool_code": "api.call", "arguments": {"query": "季度报告"}}
+{"query": "处理一下调用 API这个需求，查询：季度报告", "tool_code": "api.call", "arguments": {"query": "季度报告"}}
+{"query": "先调用 API，信息稍后补充", "tool_code": "api.call", "arguments": {}}
+{"query": "不是闲聊，帮我调用 API，查询：季度报告", "tool_code": "api.call", "arguments": {"query": "季度报告"}}
+{"query": "请帮我创建故障单，标题：周会安排，内容：项目材料已经更新", "tool_code": "incident.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想创建故障单，标题：周会安排，内容：项目材料已经更新", "tool_code": "incident.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下创建故障单这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "incident.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先创建故障单，内容：项目材料已经更新", "tool_code": "incident.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我创建故障单，标题：周会安排，内容：项目材料已经更新", "tool_code": "incident.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我切换功能开关，名称：李雷，模式：开启", "tool_code": "feature_flag.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "我想切换功能开关，名称：李雷，模式：开启", "tool_code": "feature_flag.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "处理一下切换功能开关这个需求，名称：李雷，模式：开启", "tool_code": "feature_flag.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "先切换功能开关，信息稍后补充", "tool_code": "feature_flag.toggle", "arguments": {}}
+{"query": "不是闲聊，帮我切换功能开关，名称：李雷，模式：开启", "tool_code": "feature_flag.toggle", "arguments": {"name": "李雷", "mode": "开启"}}
+{"query": "请帮我创建发布，标题：周会安排，内容：项目材料已经更新", "tool_code": "release.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "我想创建发布，标题：周会安排，内容：项目材料已经更新", "tool_code": "release.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "处理一下创建发布这个需求，标题：周会安排，内容：项目材料已经更新", "tool_code": "release.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "先创建发布，内容：项目材料已经更新", "tool_code": "release.create", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我创建发布，标题：周会安排，内容：项目材料已经更新", "tool_code": "release.create", "arguments": {"title": "周会安排", "content": "项目材料已经更新"}}
+{"query": "请帮我重启容器，查询：季度报告", "tool_code": "container.restart", "arguments": {"query": "季度报告"}}
+{"query": "我想重启容器，查询：季度报告", "tool_code": "container.restart", "arguments": {"query": "季度报告"}}
+{"query": "处理一下重启容器这个需求，查询：季度报告", "tool_code": "container.restart", "arguments": {"query": "季度报告"}}
+{"query": "先重启容器，信息稍后补充", "tool_code": "container.restart", "arguments": {}}
+{"query": "不是闲聊，帮我重启容器，查询：季度报告", "tool_code": "container.restart", "arguments": {"query": "季度报告"}}
+{"query": "请帮我查询监控指标，查询：季度报告", "tool_code": "metric.query", "arguments": {"query": "季度报告"}}
+{"query": "我想查询监控指标，查询：季度报告", "tool_code": "metric.query", "arguments": {"query": "季度报告"}}
+{"query": "处理一下查询监控指标这个需求，查询：季度报告", "tool_code": "metric.query", "arguments": {"query": "季度报告"}}
+{"query": "先查询监控指标，信息稍后补充", "tool_code": "metric.query", "arguments": {}}
+{"query": "不是闲聊，帮我查询监控指标，查询：季度报告", "tool_code": "metric.query", "arguments": {"query": "季度报告"}}
+{"query": "请帮我轮换密钥，名称：李雷", "tool_code": "secrets.rotate", "arguments": {"name": "李雷"}}
+{"query": "我想轮换密钥，名称：李雷", "tool_code": "secrets.rotate", "arguments": {"name": "李雷"}}
+{"query": "处理一下轮换密钥这个需求，名称：李雷", "tool_code": "secrets.rotate", "arguments": {"name": "李雷"}}
+{"query": "先轮换密钥，信息稍后补充", "tool_code": "secrets.rotate", "arguments": {}}
+{"query": "不是闲聊，帮我轮换密钥，名称：李雷", "tool_code": "secrets.rotate", "arguments": {"name": "李雷"}}
+{"query": "请帮我检查依赖，查询：季度报告", "tool_code": "dependency.check", "arguments": {"query": "季度报告"}}
+{"query": "我想检查依赖，查询：季度报告", "tool_code": "dependency.check", "arguments": {"query": "季度报告"}}
+{"query": "处理一下检查依赖这个需求，查询：季度报告", "tool_code": "dependency.check", "arguments": {"query": "季度报告"}}
+{"query": "先检查依赖，信息稍后补充", "tool_code": "dependency.check", "arguments": {}}
+{"query": "不是闲聊，帮我检查依赖，查询：季度报告", "tool_code": "dependency.check", "arguments": {"query": "季度报告"}}
+{"query": "请帮我翻译文本，内容：项目材料已经更新，目标：英文", "tool_code": "translate.text", "arguments": {"content": "项目材料已经更新", "target": "英文"}}
+{"query": "我想翻译文本，内容：项目材料已经更新，目标：英文", "tool_code": "translate.text", "arguments": {"content": "项目材料已经更新", "target": "英文"}}
+{"query": "处理一下翻译文本这个需求，内容：项目材料已经更新，目标：英文", "tool_code": "translate.text", "arguments": {"content": "项目材料已经更新", "target": "英文"}}
+{"query": "先翻译文本，信息稍后补充", "tool_code": "translate.text", "arguments": {}}
+{"query": "不是闲聊，帮我翻译文本，内容：项目材料已经更新，目标：英文", "tool_code": "translate.text", "arguments": {"content": "项目材料已经更新", "target": "英文"}}
+{"query": "请帮我总结文本，内容：项目材料已经更新", "tool_code": "summarize.text", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想总结文本，内容：项目材料已经更新", "tool_code": "summarize.text", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下总结文本这个需求，内容：项目材料已经更新", "tool_code": "summarize.text", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先总结文本，信息稍后补充", "tool_code": "summarize.text", "arguments": {}}
+{"query": "不是闲聊，帮我总结文本，内容：项目材料已经更新", "tool_code": "summarize.text", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我计算表达式，查询：季度报告", "tool_code": "calculator.compute", "arguments": {"query": "季度报告"}}
+{"query": "我想计算表达式，查询：季度报告", "tool_code": "calculator.compute", "arguments": {"query": "季度报告"}}
+{"query": "处理一下计算表达式这个需求，查询：季度报告", "tool_code": "calculator.compute", "arguments": {"query": "季度报告"}}
+{"query": "先计算表达式，信息稍后补充", "tool_code": "calculator.compute", "arguments": {}}
+{"query": "不是闲聊，帮我计算表达式，查询：季度报告", "tool_code": "calculator.compute", "arguments": {"query": "季度报告"}}
+{"query": "请帮我单位换算，查询：季度报告", "tool_code": "unit.convert", "arguments": {"query": "季度报告"}}
+{"query": "我想单位换算，查询：季度报告", "tool_code": "unit.convert", "arguments": {"query": "季度报告"}}
+{"query": "处理一下单位换算这个需求，查询：季度报告", "tool_code": "unit.convert", "arguments": {"query": "季度报告"}}
+{"query": "先单位换算，信息稍后补充", "tool_code": "unit.convert", "arguments": {}}
+{"query": "不是闲聊，帮我单位换算，查询：季度报告", "tool_code": "unit.convert", "arguments": {"query": "季度报告"}}
+{"query": "请帮我汇率换算，查询：季度报告", "tool_code": "currency.convert", "arguments": {"query": "季度报告"}}
+{"query": "我想汇率换算，查询：季度报告", "tool_code": "currency.convert", "arguments": {"query": "季度报告"}}
+{"query": "处理一下汇率换算这个需求，查询：季度报告", "tool_code": "currency.convert", "arguments": {"query": "季度报告"}}
+{"query": "先汇率换算，信息稍后补充", "tool_code": "currency.convert", "arguments": {}}
+{"query": "不是闲聊，帮我汇率换算，查询：季度报告", "tool_code": "currency.convert", "arguments": {"query": "季度报告"}}
+{"query": "请帮我百科搜索，查询：季度报告", "tool_code": "encyclopedia.search", "arguments": {"query": "季度报告"}}
+{"query": "我想百科搜索，查询：季度报告", "tool_code": "encyclopedia.search", "arguments": {"query": "季度报告"}}
+{"query": "处理一下百科搜索这个需求，查询：季度报告", "tool_code": "encyclopedia.search", "arguments": {"query": "季度报告"}}
+{"query": "先百科搜索，信息稍后补充", "tool_code": "encyclopedia.search", "arguments": {}}
+{"query": "不是闲聊，帮我百科搜索，查询：季度报告", "tool_code": "encyclopedia.search", "arguments": {"query": "季度报告"}}
+{"query": "请帮我词典查询，查询：季度报告", "tool_code": "dictionary.lookup", "arguments": {"query": "季度报告"}}
+{"query": "我想词典查询，查询：季度报告", "tool_code": "dictionary.lookup", "arguments": {"query": "季度报告"}}
+{"query": "处理一下词典查询这个需求，查询：季度报告", "tool_code": "dictionary.lookup", "arguments": {"query": "季度报告"}}
+{"query": "先词典查询，信息稍后补充", "tool_code": "dictionary.lookup", "arguments": {}}
+{"query": "不是闲聊，帮我词典查询，查询：季度报告", "tool_code": "dictionary.lookup", "arguments": {"query": "季度报告"}}
+{"query": "请帮我语法检查，内容：项目材料已经更新", "tool_code": "grammar.check", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想语法检查，内容：项目材料已经更新", "tool_code": "grammar.check", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下语法检查这个需求，内容：项目材料已经更新", "tool_code": "grammar.check", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先语法检查，信息稍后补充", "tool_code": "grammar.check", "arguments": {}}
+{"query": "不是闲聊，帮我语法检查，内容：项目材料已经更新", "tool_code": "grammar.check", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我改写文本，内容：项目材料已经更新", "tool_code": "text.rewrite", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想改写文本，内容：项目材料已经更新", "tool_code": "text.rewrite", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下改写文本这个需求，内容：项目材料已经更新", "tool_code": "text.rewrite", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先改写文本，信息稍后补充", "tool_code": "text.rewrite", "arguments": {}}
+{"query": "不是闲聊，帮我改写文本，内容：项目材料已经更新", "tool_code": "text.rewrite", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我情感分析，内容：项目材料已经更新", "tool_code": "sentiment.analyze", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想情感分析，内容：项目材料已经更新", "tool_code": "sentiment.analyze", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下情感分析这个需求，内容：项目材料已经更新", "tool_code": "sentiment.analyze", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先情感分析，信息稍后补充", "tool_code": "sentiment.analyze", "arguments": {}}
+{"query": "不是闲聊，帮我情感分析，内容：项目材料已经更新", "tool_code": "sentiment.analyze", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我抽取数据，内容：项目材料已经更新", "tool_code": "data.extract", "arguments": {"content": "项目材料已经更新"}}
+{"query": "我想抽取数据，内容：项目材料已经更新", "tool_code": "data.extract", "arguments": {"content": "项目材料已经更新"}}
+{"query": "处理一下抽取数据这个需求，内容：项目材料已经更新", "tool_code": "data.extract", "arguments": {"content": "项目材料已经更新"}}
+{"query": "先抽取数据，信息稍后补充", "tool_code": "data.extract", "arguments": {}}
+{"query": "不是闲聊，帮我抽取数据，内容：项目材料已经更新", "tool_code": "data.extract", "arguments": {"content": "项目材料已经更新"}}
+{"query": "请帮我格式化引用，内容：项目材料已经更新，模式：开启", "tool_code": "citation.format", "arguments": {"content": "项目材料已经更新", "mode": "开启"}}
+{"query": "我想格式化引用，内容：项目材料已经更新，模式：开启", "tool_code": "citation.format", "arguments": {"content": "项目材料已经更新", "mode": "开启"}}
+{"query": "处理一下格式化引用这个需求，内容：项目材料已经更新，模式：开启", "tool_code": "citation.format", "arguments": {"content": "项目材料已经更新", "mode": "开启"}}
+{"query": "先格式化引用，模式：开启", "tool_code": "citation.format", "arguments": {"mode": "开启"}}
+{"query": "不是闲聊，帮我格式化引用，内容：项目材料已经更新，模式：开启", "tool_code": "citation.format", "arguments": {"content": "项目材料已经更新", "mode": "开启"}}
+{"query": "请帮我识别图片文字，文件：方案.docx，内容：项目材料已经更新", "tool_code": "ocr.extract", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "我想识别图片文字，文件：方案.docx，内容：项目材料已经更新", "tool_code": "ocr.extract", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "处理一下识别图片文字这个需求，文件：方案.docx，内容：项目材料已经更新", "tool_code": "ocr.extract", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "先识别图片文字，内容：项目材料已经更新", "tool_code": "ocr.extract", "arguments": {"content": "项目材料已经更新"}}
+{"query": "不是闲聊，帮我识别图片文字，文件：方案.docx，内容：项目材料已经更新", "tool_code": "ocr.extract", "arguments": {"file": "方案.docx", "content": "项目材料已经更新"}}
+{"query": "你是谁", "tool_code": "none", "arguments": {}}
+{"query": "谢谢你", "tool_code": "none", "arguments": {}}
+{"query": "解释一下余弦相似度", "tool_code": "none", "arguments": {}}
+{"query": "为什么天空是蓝色的", "tool_code": "none", "arguments": {}}
+{"query": "讲个笑话", "tool_code": "none", "arguments": {}}
+{"query": "怎么学习机器学习", "tool_code": "none", "arguments": {}}
+{"query": "Apollo 这个名字有什么含义", "tool_code": "none", "arguments": {}}
+{"query": "请说明两阶段路由的原理", "tool_code": "none", "arguments": {}}
+{"query": "今天心情不错", "tool_code": "none", "arguments": {}}
+{"query": "什么是向量数据库", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 11 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 12 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 13 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 14 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 15 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 16 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 17 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 18 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 19 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 20 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 21 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 22 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 23 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 24 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 25 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 26 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 27 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 28 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 29 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 30 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 31 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 32 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 33 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 34 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 35 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 36 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 37 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 38 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 39 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 40 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 41 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 42 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 43 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 44 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 45 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 46 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 47 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 48 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 49 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 50 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 51 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 52 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 53 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 54 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 55 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 56 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 57 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 58 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 59 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 60 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 61 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 62 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 63 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 64 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 65 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 66 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 67 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 68 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 69 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 70 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 71 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 72 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 73 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 74 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 75 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 76 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 77 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 78 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 79 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 80 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 81 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 82 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 83 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 84 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 85 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 86 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 87 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 88 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 89 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 90 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 91 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 92 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 93 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 94 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 95 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 96 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 97 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 98 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 99 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 100 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 101 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 102 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 103 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 104 个概念是什么", "tool_code": "none", "arguments": {}}
+{"query": "解释一下第 105 个概念是什么", "tool_code": "none", "arguments": {}}

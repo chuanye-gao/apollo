@@ -14,6 +14,12 @@ dependencies = [
   "sentence-transformers>=2.7",
 ]
 
+[project.optional-dependencies]
+serve = [
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.29",
+]
+
 [project.scripts]
 router = "apollo.cli:main"
 

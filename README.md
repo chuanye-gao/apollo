@@ -1,41 +1,32 @@
-# apollo
+# Apollo
 
-一个基于 embedding 语义召回 + LLM 仲裁的工具路由系统，用于 Function Calling / MCP 场景下的意图识别与参数抽取。
+[English](README.md) | [中文](README.zh-CN.md)
 
-## 架构
+Apollo is a Chinese Tool Router reproduction project for a 150-tool environment. It implements an engineering-focused two-stage routing pipeline: embedding-based Top-K tool recall first, followed by LLM arbitration and argument extraction only within the recalled candidates.
+
+The project focuses on reproducibility, evaluation, and deployment readiness. It does not execute real tools.
+
+## Highlights
+
+- 150 tools managed by a unified YAML schema.
+- 850 Chinese natural-language evaluation samples.
+- Two-stage routing: semantic recall plus LLM arbitration.
+- Local offline demo mode with hash embeddings and a deterministic dry-run arbiter.
+- Evaluation metrics for Top-1 Accuracy, Top-K Recall, Slot Precision / Recall / F1, None Accuracy, and per-category accuracy.
+- Baseline comparison for keyword matching, embedding-only routing, full-prompt arbitration, and Apollo two-stage routing.
+- CLI, FastAPI REST API, Docker demo, and embedding cache support.
+
+## Architecture
 
 ```text
-query
-  -> embedding 语义召回（Top-K tools, K=8）
-  -> LLM 仲裁（只在 Top-K 中选择）
-  -> JSON 结构化输出
+User query
+  -> BGE / hash embedding recall
+  -> Top-K candidate tools
+  -> LLM / dry-run arbitration within candidates
+  -> Structured JSON route result
 ```
 
-本项目只做 router，不执行真实工具，不引入 LangChain / LangGraph。
-
-## 快速开始
-
-安装依赖：
-
-```bash
-python -m pip install -e .
-```
-
-使用真实 BGE embedding 和 OpenAI-compatible LLM：
-
-```bash
-set APOLLO_LLM_API_KEY=你的_api_key
-set APOLLO_LLM_MODEL=你的模型名
-router "明天下午三点提醒我开会"
-```
-
-本地烟测模式（不需要下载 BGE、不需要 API key，仅用于验证流程）：
-
-```bash
-python -m apollo.cli --embedding hash --llm dry-run "给张三发消息说我晚点到"
-```
-
-输出示例：
+Output format:
 
 ```json
 {
@@ -47,52 +38,261 @@ python -m apollo.cli --embedding hash --llm dry-run "给张三发消息说我晚
     "content": "我晚点到"
   },
   "missing_required_arguments": [],
-  "confidence": 0.73,
+  "confidence": 0.99,
   "reason": "dry-run 本地仲裁"
 }
 ```
 
-## 配置
+## Repository Layout
 
-工具定义在 `configs/tools.yaml`。每个工具包含：
+```text
+apollo/
+  cache.py          # embedding cache read/write
+  cli.py            # command-line interface
+  config.py         # YAML tool schema loader
+  embedding.py      # BGE and hash embedding models
+  evaluate.py       # evaluation and baseline comparison
+  llm.py            # OpenAI-compatible client and dry-run arbiter
+  prompt.py         # arbitration prompt builder
+  retrieval.py      # Top-K tool retriever
+  router.py         # end-to-end router
+  server.py         # FastAPI REST API
+configs/
+  tools.yaml        # 150 tool definitions
+data/
+  generated_queries.jsonl
+scripts/
+  generate_assets.py
+tests/
+  test_router.py
+```
+
+## Quick Start
+
+Install the project:
+
+```bash
+python -m pip install -e .
+```
+
+Run the offline smoke test. This mode does not need a BGE model download or an API key:
+
+```bash
+python -m apollo.cli route --embedding hash --llm dry-run "请帮我发送消息，收件人：张三，内容：我晚点到"
+```
+
+Example output:
+
+```json
+{
+  "is_instruction": true,
+  "tool_code": "message.send",
+  "intent": "发送消息",
+  "arguments": {
+    "recipient": "张三",
+    "content": "我晚点到"
+  },
+  "missing_required_arguments": [],
+  "confidence": 0.99,
+  "reason": "dry-run 本地仲裁"
+}
+```
+
+Show retrieved candidates:
+
+```bash
+python -m apollo.cli route --embedding hash --llm dry-run --show-candidates "请帮我查询天气，地点：上海，日期：明天"
+```
+
+## Production Mode
+
+Production mode uses BGE embeddings and an OpenAI-compatible Chat Completions API.
+
+```bash
+set APOLLO_LLM_API_KEY=your_api_key
+set APOLLO_LLM_MODEL=your_model
+set APOLLO_LLM_BASE_URL=https://api.openai.com/v1
+
+router route "请帮我创建日程，标题：周会安排，日期：明天，时间：明天下午三点"
+```
+
+Precompute tool embeddings to reduce startup cost:
+
+```bash
+router precompute
+```
+
+The cache is stored at `data/tool_embeddings.json` and is automatically invalidated when `configs/tools.yaml` changes.
+
+## Tool Schema
+
+Tool definitions are stored in `configs/tools.yaml`. Each tool contains:
 
 - `code`
 - `name`
+- `category`
 - `description`
 - `aliases`
-- `examples`（每个工具 5 条手写样例）
+- `examples`
 - `arguments`
 
-召回阶段会使用以下文本构建工具 embedding：
+The current schema contains 150 tools across system tools, office tools, communication tools, life services, multimedia, smart home, developer tools, knowledge tools, and the `none` fallback.
 
-```text
-name: {name}
-description: {description}
-aliases: {aliases}
-examples: {examples}
+The `none` tool represents non-instruction inputs such as chat, factual questions, explanations, and thanks.
+
+## Evaluation Dataset
+
+The evaluation set is stored in `data/generated_queries.jsonl`.
+
+Current scale:
+
+- 850 total samples
+- 149 executable tools covered
+- 105 `none` samples
+- At least 5 samples per executable tool
+
+Sample types include standard complete instructions, colloquial instructions, ambiguous but routable expressions, missing-argument expressions, and non-instruction distractors.
+
+Regenerate the tool schema and dataset:
+
+```bash
+python scripts/generate_assets.py
 ```
 
-## LLM 配置
+## Evaluation
 
-默认使用 OpenAI-compatible Chat Completions API：
-
-- `APOLLO_LLM_API_KEY`
-- `APOLLO_LLM_MODEL`
-- `APOLLO_LLM_BASE_URL`，默认 `https://api.openai.com/v1`
-
-LLM prompt 只会包含召回得到的 Top-K 候选工具，且强制包含 `tool_code = "none"`。
-
-## 评测
+Run the offline evaluation:
 
 ```bash
 python -m apollo.evaluate --embedding hash --llm dry-run data/generated_queries.jsonl
 ```
 
-评测指标：
+The evaluator reports Top-1 Accuracy, Top-K Recall for K = 3 / 5 / 8 / 10, Slot Precision / Recall / F1, None Accuracy, per-category accuracy, baseline comparison, and estimated prompt tokens / cost for the full-prompt baseline.
 
-- `Accuracy(tool_code)`
-- `Slot F1`
+## Current Offline Results
 
-## 简历写法
+The following results were produced with `hash` embedding and `dry-run` arbitration on the generated 850-sample dataset:
 
-实现两阶段工具路由系统：第一阶段基于 BGE embedding 做语义召回（Top-K tools），第二阶段由 LLM 完成工具仲裁与槽位抽取，在百级工具规模下保持低延迟与稳定识别精度。
+```text
+Dataset size:       850
+Tool count:         150
+None samples:       105
+
+Top-1 Accuracy:     99.65%
+Top-3 Recall:       100.00%
+Top-5 Recall:       100.00%
+Top-8 Recall:       100.00%
+Top-10 Recall:      100.00%
+
+Slot Precision:     100.00%
+Slot Recall:        100.00%
+Slot F1:            100.00%
+
+None Accuracy:      97.14%
+```
+
+Per-category accuracy:
+
+```text
+System tools:       100.00%
+Office tools:       100.00%
+Communication:      100.00%
+Life services:      100.00%
+Multimedia:         100.00%
+Smart home:         100.00%
+Developer tools:    100.00%
+Knowledge tools:    100.00%
+None fallback:       97.14%
+```
+
+Baseline comparison:
+
+```text
+Keyword baseline
+  Top-1 Accuracy:   99.18%
+  None Accuracy:    93.33%
+  Slot F1:          100.00%
+
+Embedding only
+  Top-1 Accuracy:   87.65%
+  None Accuracy:     0.00%
+  Slot F1:            0.00%
+
+LLM full prompt
+  Top-1 Accuracy:   99.65%
+  None Accuracy:    97.14%
+  Slot F1:          100.00%
+  Estimated prompt tokens: 14801
+  Estimated cost:   $1.887 / 850 samples
+
+Apollo two-stage
+  Top-1 Accuracy:   99.65%
+  None Accuracy:    97.14%
+  Slot F1:          100.00%
+```
+
+These offline numbers are intended as a deterministic engineering smoke test and baseline. Real BGE plus real LLM performance should be measured with the same command by switching to `--embedding bge --llm openai`.
+
+## REST API
+
+Install server dependencies:
+
+```bash
+python -m pip install -e ".[serve]"
+```
+
+Start the demo API:
+
+```bash
+set APOLLO_EMBEDDING=hash
+set APOLLO_LLM_MODE=dry-run
+uvicorn apollo.server:app --reload
+```
+
+Endpoints:
+
+| Method | Path | Description |
+| --- | --- | --- |
+| GET | `/health` | Health check |
+| POST | `/route` | Route a query and return structured JSON |
+
+Request example:
+
+```bash
+curl -s -X POST http://localhost:8000/route ^
+  -H "Content-Type: application/json" ^
+  -d "{\"query\":\"请帮我发送消息，收件人：张三，内容：我晚点到\"}"
+```
+
+## Docker Demo
+
+Run the no-key local demo:
+
+```bash
+docker-compose --profile demo up --build
+```
+
+Run production mode:
+
+```bash
+copy .env.example .env
+docker-compose --profile prod up --build
+```
+
+Demo mode uses hash embeddings and dry-run arbitration. Production mode uses BGE embeddings and an OpenAI-compatible LLM.
+
+## Tests
+
+```bash
+python -m pytest tests/ -v
+```
+
+Current result:
+
+```text
+5 passed
+```
+
+## Resume-Friendly Summary
+
+Apollo is a Chinese Tool Router reproduction project at 150-tool scale. It implements a two-stage routing pipeline with embedding-based Top-K recall and LLM arbitration, builds a YAML-managed tool schema and an 850-sample Chinese evaluation set, measures Top-K Recall, Tool Accuracy, Slot F1, and None Accuracy, and compares keyword, embedding-only, full-prompt, and two-stage baselines. The project includes CLI, FastAPI, Docker demo, embedding cache, and deterministic dry-run smoke testing for a complete reproducible engineering loop.

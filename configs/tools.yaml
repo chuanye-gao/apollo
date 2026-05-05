@@ -1,137 +1,365 @@
 tools:
-  - code: "alarm.create"
-    name: "创建闹钟"
-    description: "设置闹钟、提醒、定时叫醒或到点通知"
-    aliases: ["闹钟", "提醒我", "叫我", "定个提醒"]
+  - code: "file.search"
+    name: "搜索文件"
+    category: "系统工具"
+    description: "系统工具场景下的搜索文件工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索文件", "search", "file.search"]
     examples:
-      - "明早八点叫我起床"
-      - "设置一个下午三点的闹钟"
-      - "半小时后提醒我喝水"
-      - "明天下午三点提醒我开会"
-      - "周五晚上七点叫我去健身"
-    arguments:
-      time:
-        type: "string"
-        required: true
-      date:
-        type: "string"
-        required: false
-
-  - code: "message.send"
-    name: "发送消息"
-    description: "给联系人发送短信、即时消息或通知内容"
-    aliases: ["发消息", "发短信", "告诉某人", "通知"]
-    examples:
-      - "给张三发消息说我晚点到"
-      - "告诉李雷会议改到三点"
-      - "帮我给妈妈发短信说今晚回家吃饭"
-      - "通知王经理我已经提交报告"
-      - "给小明发一句生日快乐"
-    arguments:
-      recipient:
-        type: "string"
-        required: true
-      content:
-        type: "string"
-        required: true
-
-  - code: "calendar.create"
-    name: "创建日程"
-    description: "创建会议、约会、日程安排或日历事件"
-    aliases: ["日程", "会议", "安排", "日历"]
-    examples:
-      - "明天下午两点安排产品评审会"
-      - "下周一上午十点加一个团队例会"
-      - "帮我创建周五和客户吃饭的日程"
-      - "把今晚七点的读书会加入日历"
-      - "安排一个月底复盘会议"
-    arguments:
-      title:
-        type: "string"
-        required: true
-      time:
-        type: "string"
-        required: true
-      date:
-        type: "string"
-        required: false
-
-  - code: "weather.query"
-    name: "查询天气"
-    description: "查询城市或地区的天气、温度、降雨和空气情况"
-    aliases: ["天气", "气温", "下雨", "空气质量"]
-    examples:
-      - "上海今天会下雨吗"
-      - "查一下北京明天的天气"
-      - "杭州现在多少度"
-      - "周末广州天气怎么样"
-      - "看看深圳今天空气质量"
-    arguments:
-      location:
-        type: "string"
-        required: true
-      date:
-        type: "string"
-        required: false
-
-  - code: "music.play"
-    name: "播放音乐"
-    description: "播放歌曲、歌手、专辑、歌单或音乐类型"
-    aliases: ["放歌", "播放", "听音乐", "来一首"]
-    examples:
-      - "播放周杰伦的晴天"
-      - "来一首轻松的爵士乐"
-      - "放点适合工作的白噪音"
-      - "我想听陈奕迅的歌"
-      - "播放收藏歌单"
+      - "帮我搜索文件，查询：季度报告"
+      - "搜索文件一下，查询：季度报告"
+      - "需要搜索文件，查询：季度报告"
+      - "先搜索文件，稍后补充"
+      - "把搜索文件这件事处理掉，查询：季度报告"
     arguments:
       query:
         type: "string"
         required: true
 
-  - code: "navigation.start"
-    name: "开始导航"
-    description: "规划路线并开始去某个地点的导航"
-    aliases: ["导航", "带我去", "路线", "怎么走"]
+  - code: "file.open"
+    name: "打开文件"
+    category: "系统工具"
+    description: "系统工具场景下的打开文件工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["打开文件", "open", "file.open"]
     examples:
-      - "导航到上海虹桥火车站"
-      - "带我去最近的加油站"
-      - "规划去公司最快的路线"
-      - "开车去人民广场怎么走"
-      - "帮我导航到浦东机场"
+      - "帮我打开文件，文件：方案.docx，内容：项目材料已经更新"
+      - "打开文件一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要打开文件，文件：方案.docx，内容：项目材料已经更新"
+      - "先打开文件，内容：项目材料已经更新"
+      - "把打开文件这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
     arguments:
-      destination:
+      file:
         type: "string"
         required: true
-      origin:
+      content:
         type: "string"
         required: false
 
-  - code: "note.create"
-    name: "创建笔记"
-    description: "记录备忘、想法、文字笔记或临时信息"
-    aliases: ["记一下", "备忘", "笔记", "记录"]
+  - code: "file.copy"
+    name: "复制文件"
+    category: "系统工具"
+    description: "系统工具场景下的复制文件工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["复制文件", "copy", "file.copy"]
     examples:
-      - "记一下今天要买牛奶"
-      - "帮我写个备忘：下午联系供应商"
-      - "记录灵感：做一个语音工具路由器"
-      - "把这句话存成笔记"
-      - "记住护照放在书桌抽屉"
+      - "帮我复制文件，文件：方案.docx，内容：项目材料已经更新"
+      - "复制文件一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要复制文件，文件：方案.docx，内容：项目材料已经更新"
+      - "先复制文件，内容：项目材料已经更新"
+      - "把复制文件这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "file.delete"
+    name: "删除文件"
+    category: "系统工具"
+    description: "系统工具场景下的删除文件工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["删除文件", "delete", "file.delete"]
+    examples:
+      - "帮我删除文件，文件：方案.docx，内容：项目材料已经更新"
+      - "删除文件一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要删除文件，文件：方案.docx，内容：项目材料已经更新"
+      - "先删除文件，内容：项目材料已经更新"
+      - "把删除文件这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "file.rename"
+    name: "重命名文件"
+    category: "系统工具"
+    description: "系统工具场景下的重命名文件工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["重命名文件", "rename", "file.rename"]
+    examples:
+      - "帮我重命名文件，文件：方案.docx，内容：项目材料已经更新"
+      - "重命名文件一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要重命名文件，文件：方案.docx，内容：项目材料已经更新"
+      - "先重命名文件，内容：项目材料已经更新"
+      - "把重命名文件这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "file.compress"
+    name: "压缩文件"
+    category: "系统工具"
+    description: "系统工具场景下的压缩文件工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["压缩文件", "compress", "file.compress"]
+    examples:
+      - "帮我压缩文件，文件：方案.docx，内容：项目材料已经更新"
+      - "压缩文件一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要压缩文件，文件：方案.docx，内容：项目材料已经更新"
+      - "先压缩文件，内容：项目材料已经更新"
+      - "把压缩文件这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "folder.create"
+    name: "新建文件夹"
+    category: "系统工具"
+    description: "系统工具场景下的新建文件夹工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["新建文件夹", "create", "folder.create"]
+    examples:
+      - "帮我新建文件夹，标题：周会安排，内容：项目材料已经更新"
+      - "新建文件夹一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要新建文件夹，标题：周会安排，内容：项目材料已经更新"
+      - "先新建文件夹，内容：项目材料已经更新"
+      - "把新建文件夹这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "clipboard.copy"
+    name: "复制到剪贴板"
+    category: "系统工具"
+    description: "系统工具场景下的复制到剪贴板工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["复制到剪贴板", "copy", "clipboard.copy"]
+    examples:
+      - "帮我复制到剪贴板，内容：项目材料已经更新"
+      - "复制到剪贴板一下，内容：项目材料已经更新"
+      - "需要复制到剪贴板，内容：项目材料已经更新"
+      - "先复制到剪贴板，稍后补充"
+      - "把复制到剪贴板这件事处理掉，内容：项目材料已经更新"
     arguments:
       content:
         type: "string"
         required: true
 
+  - code: "clipboard.read"
+    name: "读取剪贴板"
+    category: "系统工具"
+    description: "系统工具场景下的读取剪贴板工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["读取剪贴板", "read", "clipboard.read"]
+    examples:
+      - "帮我读取剪贴板，名称：李雷"
+      - "读取剪贴板一下，名称：李雷"
+      - "需要读取剪贴板，名称：李雷"
+      - "先读取剪贴板，名称：李雷"
+      - "把读取剪贴板这件事处理掉，名称：李雷"
+    arguments:
+      name:
+        type: "string"
+        required: false
+
+  - code: "app.open"
+    name: "打开应用"
+    category: "系统工具"
+    description: "系统工具场景下的打开应用工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["打开应用", "open", "app.open"]
+    examples:
+      - "帮我打开应用，名称：李雷"
+      - "打开应用一下，名称：李雷"
+      - "需要打开应用，名称：李雷"
+      - "先打开应用，稍后补充"
+      - "把打开应用这件事处理掉，名称：李雷"
+    arguments:
+      name:
+        type: "string"
+        required: true
+
+  - code: "app.close"
+    name: "关闭应用"
+    category: "系统工具"
+    description: "系统工具场景下的关闭应用工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["关闭应用", "close", "app.close"]
+    examples:
+      - "帮我关闭应用，名称：李雷"
+      - "关闭应用一下，名称：李雷"
+      - "需要关闭应用，名称：李雷"
+      - "先关闭应用，名称：李雷"
+      - "把关闭应用这件事处理掉，名称：李雷"
+    arguments:
+      name:
+        type: "string"
+        required: false
+
+  - code: "window.switch"
+    name: "切换窗口"
+    category: "系统工具"
+    description: "系统工具场景下的切换窗口工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["切换窗口", "switch", "window.switch"]
+    examples:
+      - "帮我切换窗口，名称：李雷"
+      - "切换窗口一下，名称：李雷"
+      - "需要切换窗口，名称：李雷"
+      - "先切换窗口，名称：李雷"
+      - "把切换窗口这件事处理掉，名称：李雷"
+    arguments:
+      name:
+        type: "string"
+        required: false
+
+  - code: "window.screenshot"
+    name: "窗口截图"
+    category: "系统工具"
+    description: "系统工具场景下的窗口截图工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["窗口截图", "screenshot", "window.screenshot"]
+    examples:
+      - "帮我窗口截图，名称：李雷"
+      - "窗口截图一下，名称：李雷"
+      - "需要窗口截图，名称：李雷"
+      - "先窗口截图，名称：李雷"
+      - "把窗口截图这件事处理掉，名称：李雷"
+    arguments:
+      name:
+        type: "string"
+        required: false
+
+  - code: "system.search"
+    name: "系统搜索"
+    category: "系统工具"
+    description: "系统工具场景下的系统搜索工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["系统搜索", "search", "system.search"]
+    examples:
+      - "帮我系统搜索，名称：李雷"
+      - "系统搜索一下，名称：李雷"
+      - "需要系统搜索，名称：李雷"
+      - "先系统搜索，稍后补充"
+      - "把系统搜索这件事处理掉，名称：李雷"
+    arguments:
+      name:
+        type: "string"
+        required: true
+
+  - code: "notification.create"
+    name: "创建通知"
+    category: "系统工具"
+    description: "系统工具场景下的创建通知工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建通知", "新建通知", "create", "notification.create"]
+    examples:
+      - "帮我创建通知，内容：项目材料已经更新，时间：明天下午三点，日期：明天"
+      - "创建通知一下，内容：项目材料已经更新，时间：明天下午三点，日期：明天"
+      - "需要创建通知，内容：项目材料已经更新，时间：明天下午三点，日期：明天"
+      - "先创建通知，日期：明天"
+      - "把创建通知这件事处理掉，内容：项目材料已经更新，时间：明天下午三点，日期：明天"
+    arguments:
+      content:
+        type: "string"
+        required: true
+      time:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "setting.wifi.toggle"
+    name: "切换 Wi-Fi"
+    category: "系统工具"
+    description: "系统工具场景下的切换 Wi-Fi工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["切换Wi-Fi", "toggle", "setting.wifi.toggle"]
+    examples:
+      - "帮我切换 Wi-Fi，名称：李雷，模式：开启"
+      - "切换Wi-Fi一下，名称：李雷，模式：开启"
+      - "需要切换 Wi-Fi，名称：李雷，模式：开启"
+      - "先切换 Wi-Fi，稍后补充"
+      - "把切换 Wi-Fi这件事处理掉，名称：李雷，模式：开启"
+    arguments:
+      name:
+        type: "string"
+        required: true
+      mode:
+        type: "string"
+        required: true
+
+  - code: "setting.bluetooth.toggle"
+    name: "切换蓝牙"
+    category: "系统工具"
+    description: "系统工具场景下的切换蓝牙工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["切换蓝牙", "toggle", "setting.bluetooth.toggle"]
+    examples:
+      - "帮我切换蓝牙，名称：李雷，模式：开启"
+      - "切换蓝牙一下，名称：李雷，模式：开启"
+      - "需要切换蓝牙，名称：李雷，模式：开启"
+      - "先切换蓝牙，稍后补充"
+      - "把切换蓝牙这件事处理掉，名称：李雷，模式：开启"
+    arguments:
+      name:
+        type: "string"
+        required: true
+      mode:
+        type: "string"
+        required: true
+
+  - code: "volume.set"
+    name: "设置音量"
+    category: "系统工具"
+    description: "系统工具场景下的设置音量工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["设置音量", "set", "volume.set"]
+    examples:
+      - "帮我设置音量，数量：80"
+      - "设置音量一下，数量：80"
+      - "需要设置音量，数量：80"
+      - "先设置音量，稍后补充"
+      - "把设置音量这件事处理掉，数量：80"
+    arguments:
+      amount:
+        type: "string"
+        required: true
+
+  - code: "brightness.set"
+    name: "设置亮度"
+    category: "系统工具"
+    description: "系统工具场景下的设置亮度工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["设置亮度", "set", "brightness.set"]
+    examples:
+      - "帮我设置亮度，数量：80"
+      - "设置亮度一下，数量：80"
+      - "需要设置亮度，数量：80"
+      - "先设置亮度，稍后补充"
+      - "把设置亮度这件事处理掉，数量：80"
+    arguments:
+      amount:
+        type: "string"
+        required: true
+
+  - code: "password.generate"
+    name: "生成密码"
+    category: "系统工具"
+    description: "系统工具场景下的生成密码工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["生成密码", "generate", "password.generate"]
+    examples:
+      - "帮我生成密码，数量：80"
+      - "生成密码一下，数量：80"
+      - "需要生成密码，数量：80"
+      - "先生成密码，数量：80"
+      - "把生成密码这件事处理掉，数量：80"
+    arguments:
+      amount:
+        type: "string"
+        required: false
+
   - code: "email.send"
     name: "发送邮件"
-    description: "给收件人发送电子邮件，包括主题和正文"
-    aliases: ["发邮件", "邮件", "email", "写封信"]
+    category: "办公工具"
+    description: "办公工具场景下的发送邮件工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["发送邮件", "send", "email.send"]
     examples:
-      - "给王总发邮件说明项目延期"
-      - "发邮件给 hr 询问面试结果"
-      - "写封邮件给客户，主题是合同确认"
-      - "帮我邮件通知团队明天远程办公"
-      - "给 support 发邮件反馈登录问题"
+      - "帮我发送邮件，收件人：张三，主题：项目进度同步，内容：项目材料已经更新"
+      - "发送邮件一下，收件人：张三，主题：项目进度同步，内容：项目材料已经更新"
+      - "需要发送邮件，收件人：张三，主题：项目进度同步，内容：项目材料已经更新"
+      - "先发送邮件，主题：项目进度同步"
+      - "把发送邮件这件事处理掉，收件人：张三，主题：项目进度同步，内容：项目材料已经更新"
     arguments:
       recipient:
         type: "string"
@@ -143,47 +371,2300 @@ tools:
         type: "string"
         required: true
 
+  - code: "email.search"
+    name: "搜索邮件"
+    category: "办公工具"
+    description: "办公工具场景下的搜索邮件工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索邮件", "search", "email.search"]
+    examples:
+      - "帮我搜索邮件，查询：季度报告"
+      - "搜索邮件一下，查询：季度报告"
+      - "需要搜索邮件，查询：季度报告"
+      - "先搜索邮件，稍后补充"
+      - "把搜索邮件这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "email.draft"
+    name: "起草邮件"
+    category: "办公工具"
+    description: "办公工具场景下的起草邮件工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["起草邮件", "draft", "email.draft"]
+    examples:
+      - "帮我起草邮件，收件人：张三，主题：项目进度同步，内容：项目材料已经更新"
+      - "起草邮件一下，收件人：张三，主题：项目进度同步，内容：项目材料已经更新"
+      - "需要起草邮件，收件人：张三，主题：项目进度同步，内容：项目材料已经更新"
+      - "先起草邮件，主题：项目进度同步"
+      - "把起草邮件这件事处理掉，收件人：张三，主题：项目进度同步，内容：项目材料已经更新"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      subject:
+        type: "string"
+        required: false
+      content:
+        type: "string"
+        required: true
+
+  - code: "calendar.create"
+    name: "创建日程"
+    category: "办公工具"
+    description: "办公工具场景下的创建日程工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建日程", "新建日程", "create", "calendar.create"]
+    examples:
+      - "帮我创建日程，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "创建日程一下，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "需要创建日程，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "先创建日程，时间：明天下午三点，地点：上海"
+      - "把创建日程这件事处理掉，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: true
+      time:
+        type: "string"
+        required: false
+      location:
+        type: "string"
+        required: false
+
+  - code: "calendar.query"
+    name: "查询日程"
+    category: "办公工具"
+    description: "办公工具场景下的查询日程工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查询日程", "query", "calendar.query"]
+    examples:
+      - "帮我查询日程，查询：季度报告"
+      - "查询日程一下，查询：季度报告"
+      - "需要查询日程，查询：季度报告"
+      - "先查询日程，稍后补充"
+      - "把查询日程这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "meeting.schedule"
+    name: "安排会议"
+    category: "办公工具"
+    description: "办公工具场景下的安排会议工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["安排会议", "schedule", "meeting.schedule"]
+    examples:
+      - "帮我安排会议，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "安排会议一下，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "需要安排会议，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "先安排会议，时间：明天下午三点，地点：上海"
+      - "把安排会议这件事处理掉，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: true
+      time:
+        type: "string"
+        required: false
+      location:
+        type: "string"
+        required: false
+
+  - code: "document.create"
+    name: "创建文档"
+    category: "办公工具"
+    description: "办公工具场景下的创建文档工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建文档", "新建文档", "create", "document.create"]
+    examples:
+      - "帮我创建文档，标题：周会安排，内容：项目材料已经更新"
+      - "创建文档一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要创建文档，标题：周会安排，内容：项目材料已经更新"
+      - "先创建文档，内容：项目材料已经更新"
+      - "把创建文档这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "document.summarize"
+    name: "总结文档"
+    category: "办公工具"
+    description: "办公工具场景下的总结文档工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["总结文档", "summarize", "document.summarize"]
+    examples:
+      - "帮我总结文档，文件：方案.docx，内容：项目材料已经更新"
+      - "总结文档一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要总结文档，文件：方案.docx，内容：项目材料已经更新"
+      - "先总结文档，内容：项目材料已经更新"
+      - "把总结文档这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "document.translate"
+    name: "翻译文档"
+    category: "办公工具"
+    description: "办公工具场景下的翻译文档工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["翻译文档", "translate", "document.translate"]
+    examples:
+      - "帮我翻译文档，文件：方案.docx，内容：项目材料已经更新"
+      - "翻译文档一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要翻译文档，文件：方案.docx，内容：项目材料已经更新"
+      - "先翻译文档，内容：项目材料已经更新"
+      - "把翻译文档这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "document.export_pdf"
+    name: "导出 PDF"
+    category: "办公工具"
+    description: "办公工具场景下的导出 PDF工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["导出PDF", "export pdf", "document.export_pdf"]
+    examples:
+      - "帮我导出 PDF，文件：方案.docx，内容：项目材料已经更新"
+      - "导出PDF一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要导出 PDF，文件：方案.docx，内容：项目材料已经更新"
+      - "先导出 PDF，内容：项目材料已经更新"
+      - "把导出 PDF这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "spreadsheet.create"
+    name: "创建表格"
+    category: "办公工具"
+    description: "办公工具场景下的创建表格工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建表格", "新建表格", "create", "spreadsheet.create"]
+    examples:
+      - "帮我创建表格，标题：周会安排，内容：项目材料已经更新"
+      - "创建表格一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要创建表格，标题：周会安排，内容：项目材料已经更新"
+      - "先创建表格，内容：项目材料已经更新"
+      - "把创建表格这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "spreadsheet.chart"
+    name: "生成表格图表"
+    category: "办公工具"
+    description: "办公工具场景下的生成表格图表工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["生成表格图表", "chart", "spreadsheet.chart"]
+    examples:
+      - "帮我生成表格图表，查询：季度报告"
+      - "生成表格图表一下，查询：季度报告"
+      - "需要生成表格图表，查询：季度报告"
+      - "先生成表格图表，稍后补充"
+      - "把生成表格图表这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "slides.create"
+    name: "创建幻灯片"
+    category: "办公工具"
+    description: "办公工具场景下的创建幻灯片工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建幻灯片", "新建幻灯片", "create", "slides.create"]
+    examples:
+      - "帮我创建幻灯片，标题：周会安排，内容：项目材料已经更新"
+      - "创建幻灯片一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要创建幻灯片，标题：周会安排，内容：项目材料已经更新"
+      - "先创建幻灯片，内容：项目材料已经更新"
+      - "把创建幻灯片这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
   - code: "todo.create"
     name: "创建待办"
-    description: "创建任务、待办事项、检查清单或要完成的事情"
-    aliases: ["待办", "任务", "todo", "清单"]
+    category: "办公工具"
+    description: "办公工具场景下的创建待办工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建待办", "新建待办", "create", "todo.create"]
     examples:
-      - "加一个待办：报销差旅费"
-      - "把买打印纸放进任务列表"
-      - "提醒清单里加上更新简历"
-      - "创建任务：整理周报"
-      - "记录一个 todo，晚上跑步"
+      - "帮我创建待办，内容：项目材料已经更新"
+      - "创建待办一下，内容：项目材料已经更新"
+      - "需要创建待办，内容：项目材料已经更新"
+      - "先创建待办，稍后补充"
+      - "把创建待办这件事处理掉，内容：项目材料已经更新"
     arguments:
       content:
         type: "string"
         required: true
-      due_date:
+
+  - code: "todo.update"
+    name: "更新待办"
+    category: "办公工具"
+    description: "办公工具场景下的更新待办工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["更新待办", "update", "todo.update"]
+    examples:
+      - "帮我更新待办，内容：项目材料已经更新"
+      - "更新待办一下，内容：项目材料已经更新"
+      - "需要更新待办，内容：项目材料已经更新"
+      - "先更新待办，稍后补充"
+      - "把更新待办这件事处理掉，内容：项目材料已经更新"
+    arguments:
+      content:
+        type: "string"
+        required: true
+
+  - code: "approval.submit"
+    name: "提交审批"
+    category: "办公工具"
+    description: "办公工具场景下的提交审批工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["提交审批", "submit", "approval.submit"]
+    examples:
+      - "帮我提交审批，内容：项目材料已经更新"
+      - "提交审批一下，内容：项目材料已经更新"
+      - "需要提交审批，内容：项目材料已经更新"
+      - "先提交审批，稍后补充"
+      - "把提交审批这件事处理掉，内容：项目材料已经更新"
+    arguments:
+      content:
+        type: "string"
+        required: true
+
+  - code: "expense.create"
+    name: "创建报销"
+    category: "办公工具"
+    description: "办公工具场景下的创建报销工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建报销", "新建报销", "create", "expense.create"]
+    examples:
+      - "帮我创建报销，收件人：张三，数量：80，内容：项目材料已经更新"
+      - "创建报销一下，收件人：张三，数量：80，内容：项目材料已经更新"
+      - "需要创建报销，收件人：张三，数量：80，内容：项目材料已经更新"
+      - "先创建报销，内容：项目材料已经更新"
+      - "把创建报销这件事处理掉，收件人：张三，数量：80，内容：项目材料已经更新"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      amount:
+        type: "string"
+        required: true
+      content:
         type: "string"
         required: false
 
+  - code: "invoice.search"
+    name: "查询发票"
+    category: "办公工具"
+    description: "办公工具场景下的查询发票工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查询发票", "search", "invoice.search"]
+    examples:
+      - "帮我查询发票，查询：季度报告"
+      - "查询发票一下，查询：季度报告"
+      - "需要查询发票，查询：季度报告"
+      - "先查询发票，稍后补充"
+      - "把查询发票这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
   - code: "contact.search"
     name: "查找联系人"
-    description: "查找联系人、电话号码、邮箱或通讯录信息"
-    aliases: ["联系人", "电话", "邮箱", "通讯录"]
+    category: "办公工具"
+    description: "办公工具场景下的查找联系人工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查找联系人", "search", "contact.search"]
     examples:
-      - "查一下张三的电话"
-      - "帮我找李雷的邮箱"
-      - "王经理的联系方式是什么"
-      - "打开妈妈的联系人"
-      - "搜索通讯录里的赵老师"
+      - "帮我查找联系人，名称：李雷"
+      - "查找联系人一下，名称：李雷"
+      - "需要查找联系人，名称：李雷"
+      - "先查找联系人，稍后补充"
+      - "把查找联系人这件事处理掉，名称：李雷"
     arguments:
       name:
         type: "string"
         required: true
 
+  - code: "reminder.create"
+    name: "创建提醒"
+    category: "办公工具"
+    description: "办公工具场景下的创建提醒工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建提醒", "新建提醒", "create", "reminder.create"]
+    examples:
+      - "帮我创建提醒，内容：项目材料已经更新，时间：明天下午三点，日期：明天"
+      - "创建提醒一下，内容：项目材料已经更新，时间：明天下午三点，日期：明天"
+      - "需要创建提醒，内容：项目材料已经更新，时间：明天下午三点，日期：明天"
+      - "先创建提醒，日期：明天"
+      - "把创建提醒这件事处理掉，内容：项目材料已经更新，时间：明天下午三点，日期：明天"
+    arguments:
+      content:
+        type: "string"
+        required: true
+      time:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "project.status"
+    name: "查询项目状态"
+    category: "办公工具"
+    description: "办公工具场景下的查询项目状态工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查询项目状态", "status", "project.status"]
+    examples:
+      - "帮我查询项目状态，名称：李雷"
+      - "查询项目状态一下，名称：李雷"
+      - "需要查询项目状态，名称：李雷"
+      - "先查询项目状态，稍后补充"
+      - "把查询项目状态这件事处理掉，名称：李雷"
+    arguments:
+      name:
+        type: "string"
+        required: true
+
+  - code: "note.create"
+    name: "创建笔记"
+    category: "办公工具"
+    description: "办公工具场景下的创建笔记工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建笔记", "新建笔记", "create", "note.create"]
+    examples:
+      - "帮我创建笔记，内容：项目材料已经更新"
+      - "创建笔记一下，内容：项目材料已经更新"
+      - "需要创建笔记，内容：项目材料已经更新"
+      - "先创建笔记，稍后补充"
+      - "把创建笔记这件事处理掉，内容：项目材料已经更新"
+    arguments:
+      content:
+        type: "string"
+        required: true
+
+  - code: "note.search"
+    name: "搜索笔记"
+    category: "办公工具"
+    description: "办公工具场景下的搜索笔记工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索笔记", "search", "note.search"]
+    examples:
+      - "帮我搜索笔记，查询：季度报告"
+      - "搜索笔记一下，查询：季度报告"
+      - "需要搜索笔记，查询：季度报告"
+      - "先搜索笔记，稍后补充"
+      - "把搜索笔记这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "form.create"
+    name: "创建表单"
+    category: "办公工具"
+    description: "办公工具场景下的创建表单工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建表单", "新建表单", "create", "form.create"]
+    examples:
+      - "帮我创建表单，标题：周会安排，内容：项目材料已经更新"
+      - "创建表单一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要创建表单，标题：周会安排，内容：项目材料已经更新"
+      - "先创建表单，内容：项目材料已经更新"
+      - "把创建表单这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "report.generate"
+    name: "生成报告"
+    category: "办公工具"
+    description: "办公工具场景下的生成报告工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["生成报告", "generate", "report.generate"]
+    examples:
+      - "帮我生成报告，标题：周会安排，内容：项目材料已经更新"
+      - "生成报告一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要生成报告，标题：周会安排，内容：项目材料已经更新"
+      - "先生成报告，内容：项目材料已经更新"
+      - "把生成报告这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "message.send"
+    name: "发送消息"
+    category: "通讯工具"
+    description: "通讯工具场景下的发送消息工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["发送消息", "send", "message.send"]
+    examples:
+      - "帮我发送消息，收件人：张三，内容：项目材料已经更新"
+      - "发送消息一下，收件人：张三，内容：项目材料已经更新"
+      - "需要发送消息，收件人：张三，内容：项目材料已经更新"
+      - "先发送消息，稍后补充"
+      - "把发送消息这件事处理掉，收件人：张三，内容：项目材料已经更新"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: true
+
+  - code: "message.search"
+    name: "搜索消息"
+    category: "通讯工具"
+    description: "通讯工具场景下的搜索消息工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索消息", "search", "message.search"]
+    examples:
+      - "帮我搜索消息，查询：季度报告"
+      - "搜索消息一下，查询：季度报告"
+      - "需要搜索消息，查询：季度报告"
+      - "先搜索消息，稍后补充"
+      - "把搜索消息这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "sms.send"
+    name: "发送短信"
+    category: "通讯工具"
+    description: "通讯工具场景下的发送短信工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["发送短信", "send", "sms.send"]
+    examples:
+      - "帮我发送短信，收件人：张三，内容：项目材料已经更新"
+      - "发送短信一下，收件人：张三，内容：项目材料已经更新"
+      - "需要发送短信，收件人：张三，内容：项目材料已经更新"
+      - "先发送短信，稍后补充"
+      - "把发送短信这件事处理掉，收件人：张三，内容：项目材料已经更新"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: true
+
+  - code: "phone.call"
+    name: "拨打电话"
+    category: "通讯工具"
+    description: "通讯工具场景下的拨打电话工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["拨打电话", "call", "phone.call"]
+    examples:
+      - "帮我拨打电话，收件人：张三"
+      - "拨打电话一下，收件人：张三"
+      - "需要拨打电话，收件人：张三"
+      - "先拨打电话，稍后补充"
+      - "把拨打电话这件事处理掉，收件人：张三"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+
+  - code: "contact.create"
+    name: "新建联系人"
+    category: "通讯工具"
+    description: "通讯工具场景下的新建联系人工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["新建联系人", "create", "contact.create"]
+    examples:
+      - "帮我新建联系人，内容：项目材料已经更新"
+      - "新建联系人一下，内容：项目材料已经更新"
+      - "需要新建联系人，内容：项目材料已经更新"
+      - "先新建联系人，稍后补充"
+      - "把新建联系人这件事处理掉，内容：项目材料已经更新"
+    arguments:
+      content:
+        type: "string"
+        required: true
+
+  - code: "group.create"
+    name: "创建群聊"
+    category: "通讯工具"
+    description: "通讯工具场景下的创建群聊工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建群聊", "新建群聊", "create", "group.create"]
+    examples:
+      - "帮我创建群聊，查询：季度报告"
+      - "创建群聊一下，查询：季度报告"
+      - "需要创建群聊，查询：季度报告"
+      - "先创建群聊，稍后补充"
+      - "把创建群聊这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "group.message"
+    name: "发送群消息"
+    category: "通讯工具"
+    description: "通讯工具场景下的发送群消息工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["发送群消息", "message", "group.message"]
+    examples:
+      - "帮我发送群消息，标题：周会安排，内容：项目材料已经更新"
+      - "发送群消息一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要发送群消息，标题：周会安排，内容：项目材料已经更新"
+      - "先发送群消息，标题：周会安排"
+      - "把发送群消息这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: false
+      content:
+        type: "string"
+        required: true
+
+  - code: "chat.search"
+    name: "搜索聊天记录"
+    category: "通讯工具"
+    description: "通讯工具场景下的搜索聊天记录工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索聊天记录", "search", "chat.search"]
+    examples:
+      - "帮我搜索聊天记录，查询：季度报告"
+      - "搜索聊天记录一下，查询：季度报告"
+      - "需要搜索聊天记录，查询：季度报告"
+      - "先搜索聊天记录，稍后补充"
+      - "把搜索聊天记录这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "video_call.start"
+    name: "发起视频通话"
+    category: "通讯工具"
+    description: "通讯工具场景下的发起视频通话工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["发起视频通话", "start", "video_call.start"]
+    examples:
+      - "帮我发起视频通话，收件人：张三"
+      - "发起视频通话一下，收件人：张三"
+      - "需要发起视频通话，收件人：张三"
+      - "先发起视频通话，稍后补充"
+      - "把发起视频通话这件事处理掉，收件人：张三"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+
+  - code: "voicemail.check"
+    name: "检查语音留言"
+    category: "通讯工具"
+    description: "通讯工具场景下的检查语音留言工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["检查语音留言", "check", "voicemail.check"]
+    examples:
+      - "帮我检查语音留言，名称：李雷"
+      - "检查语音留言一下，名称：李雷"
+      - "需要检查语音留言，名称：李雷"
+      - "先检查语音留言，名称：李雷"
+      - "把检查语音留言这件事处理掉，名称：李雷"
+    arguments:
+      name:
+        type: "string"
+        required: false
+
+  - code: "broadcast.send"
+    name: "发送公告"
+    category: "通讯工具"
+    description: "通讯工具场景下的发送公告工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["发送公告", "send", "broadcast.send"]
+    examples:
+      - "帮我发送公告，标题：周会安排，内容：项目材料已经更新"
+      - "发送公告一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要发送公告，标题：周会安排，内容：项目材料已经更新"
+      - "先发送公告，标题：周会安排"
+      - "把发送公告这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: false
+      content:
+        type: "string"
+        required: true
+
+  - code: "slack.message"
+    name: "发送 Slack 消息"
+    category: "通讯工具"
+    description: "通讯工具场景下的发送 Slack 消息工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["发送Slack消息", "message", "slack.message"]
+    examples:
+      - "帮我发送 Slack 消息，收件人：张三，内容：项目材料已经更新"
+      - "发送Slack消息一下，收件人：张三，内容：项目材料已经更新"
+      - "需要发送 Slack 消息，收件人：张三，内容：项目材料已经更新"
+      - "先发送 Slack 消息，稍后补充"
+      - "把发送 Slack 消息这件事处理掉，收件人：张三，内容：项目材料已经更新"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: true
+
+  - code: "teams.message"
+    name: "发送 Teams 消息"
+    category: "通讯工具"
+    description: "通讯工具场景下的发送 Teams 消息工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["发送Teams消息", "message", "teams.message"]
+    examples:
+      - "帮我发送 Teams 消息，收件人：张三，内容：项目材料已经更新"
+      - "发送Teams消息一下，收件人：张三，内容：项目材料已经更新"
+      - "需要发送 Teams 消息，收件人：张三，内容：项目材料已经更新"
+      - "先发送 Teams 消息，稍后补充"
+      - "把发送 Teams 消息这件事处理掉，收件人：张三，内容：项目材料已经更新"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: true
+
+  - code: "social.post"
+    name: "发布动态"
+    category: "通讯工具"
+    description: "通讯工具场景下的发布动态工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["发布动态", "post", "social.post"]
+    examples:
+      - "帮我发布动态，标题：周会安排，内容：项目材料已经更新"
+      - "发布动态一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要发布动态，标题：周会安排，内容：项目材料已经更新"
+      - "先发布动态，标题：周会安排"
+      - "把发布动态这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: false
+      content:
+        type: "string"
+        required: true
+
+  - code: "customer.reply"
+    name: "回复客户"
+    category: "通讯工具"
+    description: "通讯工具场景下的回复客户工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["回复客户", "reply", "customer.reply"]
+    examples:
+      - "帮我回复客户，收件人：张三，内容：项目材料已经更新"
+      - "回复客户一下，收件人：张三，内容：项目材料已经更新"
+      - "需要回复客户，收件人：张三，内容：项目材料已经更新"
+      - "先回复客户，稍后补充"
+      - "把回复客户这件事处理掉，收件人：张三，内容：项目材料已经更新"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: true
+
+  - code: "weather.query"
+    name: "查询天气"
+    category: "生活服务"
+    description: "生活服务场景下的查询天气工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查询天气", "query", "weather.query"]
+    examples:
+      - "帮我查询天气，地点：上海，日期：明天"
+      - "查询天气一下，地点：上海，日期：明天"
+      - "需要查询天气，地点：上海，日期：明天"
+      - "先查询天气，日期：明天"
+      - "把查询天气这件事处理掉，地点：上海，日期：明天"
+    arguments:
+      location:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "navigation.start"
+    name: "开始导航"
+    category: "生活服务"
+    description: "生活服务场景下的开始导航工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["开始导航", "start", "navigation.start"]
+    examples:
+      - "帮我开始导航，目的地：虹桥火车站，起点：公司"
+      - "开始导航一下，目的地：虹桥火车站，起点：公司"
+      - "需要开始导航，目的地：虹桥火车站，起点：公司"
+      - "先开始导航，起点：公司"
+      - "把开始导航这件事处理掉，目的地：虹桥火车站，起点：公司"
+    arguments:
+      destination:
+        type: "string"
+        required: true
+      origin:
+        type: "string"
+        required: false
+
+  - code: "taxi.call"
+    name: "呼叫打车"
+    category: "生活服务"
+    description: "生活服务场景下的呼叫打车工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["呼叫打车", "call", "taxi.call"]
+    examples:
+      - "帮我呼叫打车，目的地：虹桥火车站，起点：公司"
+      - "呼叫打车一下，目的地：虹桥火车站，起点：公司"
+      - "需要呼叫打车，目的地：虹桥火车站，起点：公司"
+      - "先呼叫打车，起点：公司"
+      - "把呼叫打车这件事处理掉，目的地：虹桥火车站，起点：公司"
+    arguments:
+      destination:
+        type: "string"
+        required: true
+      origin:
+        type: "string"
+        required: false
+
+  - code: "food.order"
+    name: "点外卖"
+    category: "生活服务"
+    description: "生活服务场景下的点外卖工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["点外卖", "order", "food.order"]
+    examples:
+      - "帮我点外卖，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "点外卖一下，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "需要点外卖，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "先点外卖，地点：上海，时间：明天下午三点"
+      - "把点外卖这件事处理掉，查询：季度报告，地点：上海，时间：明天下午三点"
+    arguments:
+      query:
+        type: "string"
+        required: true
+      location:
+        type: "string"
+        required: false
+      time:
+        type: "string"
+        required: false
+
+  - code: "hotel.search"
+    name: "搜索酒店"
+    category: "生活服务"
+    description: "生活服务场景下的搜索酒店工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索酒店", "search", "hotel.search"]
+    examples:
+      - "帮我搜索酒店，地点：上海，日期：明天"
+      - "搜索酒店一下，地点：上海，日期：明天"
+      - "需要搜索酒店，地点：上海，日期：明天"
+      - "先搜索酒店，日期：明天"
+      - "把搜索酒店这件事处理掉，地点：上海，日期：明天"
+    arguments:
+      location:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "flight.search"
+    name: "搜索机票"
+    category: "生活服务"
+    description: "生活服务场景下的搜索机票工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索机票", "search", "flight.search"]
+    examples:
+      - "帮我搜索机票，地点：上海，日期：明天"
+      - "搜索机票一下，地点：上海，日期：明天"
+      - "需要搜索机票，地点：上海，日期：明天"
+      - "先搜索机票，日期：明天"
+      - "把搜索机票这件事处理掉，地点：上海，日期：明天"
+    arguments:
+      location:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "train.search"
+    name: "搜索火车票"
+    category: "生活服务"
+    description: "生活服务场景下的搜索火车票工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索火车票", "search", "train.search"]
+    examples:
+      - "帮我搜索火车票，地点：上海，日期：明天"
+      - "搜索火车票一下，地点：上海，日期：明天"
+      - "需要搜索火车票，地点：上海，日期：明天"
+      - "先搜索火车票，日期：明天"
+      - "把搜索火车票这件事处理掉，地点：上海，日期：明天"
+    arguments:
+      location:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "delivery.track"
+    name: "查询快递"
+    category: "生活服务"
+    description: "生活服务场景下的查询快递工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查询快递", "track", "delivery.track"]
+    examples:
+      - "帮我查询快递，查询：季度报告"
+      - "查询快递一下，查询：季度报告"
+      - "需要查询快递，查询：季度报告"
+      - "先查询快递，稍后补充"
+      - "把查询快递这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "package.send"
+    name: "寄送包裹"
+    category: "生活服务"
+    description: "生活服务场景下的寄送包裹工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["寄送包裹", "send", "package.send"]
+    examples:
+      - "帮我寄送包裹，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "寄送包裹一下，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "需要寄送包裹，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "先寄送包裹，地点：上海，时间：明天下午三点"
+      - "把寄送包裹这件事处理掉，查询：季度报告，地点：上海，时间：明天下午三点"
+    arguments:
+      query:
+        type: "string"
+        required: true
+      location:
+        type: "string"
+        required: false
+      time:
+        type: "string"
+        required: false
+
+  - code: "restaurant.book"
+    name: "预订餐厅"
+    category: "生活服务"
+    description: "生活服务场景下的预订餐厅工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["预订餐厅", "book", "restaurant.book"]
+    examples:
+      - "帮我预订餐厅，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "预订餐厅一下，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "需要预订餐厅，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "先预订餐厅，时间：明天下午三点，地点：上海"
+      - "把预订餐厅这件事处理掉，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: true
+      time:
+        type: "string"
+        required: false
+      location:
+        type: "string"
+        required: false
+
+  - code: "movie.ticket"
+    name: "购买电影票"
+    category: "生活服务"
+    description: "生活服务场景下的购买电影票工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["购买电影票", "ticket", "movie.ticket"]
+    examples:
+      - "帮我购买电影票，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "购买电影票一下，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "需要购买电影票，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "先购买电影票，地点：上海，时间：明天下午三点"
+      - "把购买电影票这件事处理掉，查询：季度报告，地点：上海，时间：明天下午三点"
+    arguments:
+      query:
+        type: "string"
+        required: true
+      location:
+        type: "string"
+        required: false
+      time:
+        type: "string"
+        required: false
+
+  - code: "doctor.appointment"
+    name: "预约医生"
+    category: "生活服务"
+    description: "生活服务场景下的预约医生工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["预约医生", "appointment", "doctor.appointment"]
+    examples:
+      - "帮我预约医生，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "预约医生一下，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "需要预约医生，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+      - "先预约医生，时间：明天下午三点，地点：上海"
+      - "把预约医生这件事处理掉，标题：周会安排，日期：明天，时间：明天下午三点，地点：上海"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: true
+      time:
+        type: "string"
+        required: false
+      location:
+        type: "string"
+        required: false
+
+  - code: "pharmacy.search"
+    name: "查找药店"
+    category: "生活服务"
+    description: "生活服务场景下的查找药店工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查找药店", "search", "pharmacy.search"]
+    examples:
+      - "帮我查找药店，地点：上海，日期：明天"
+      - "查找药店一下，地点：上海，日期：明天"
+      - "需要查找药店，地点：上海，日期：明天"
+      - "先查找药店，日期：明天"
+      - "把查找药店这件事处理掉，地点：上海，日期：明天"
+    arguments:
+      location:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "bank.transfer"
+    name: "银行转账"
+    category: "生活服务"
+    description: "生活服务场景下的银行转账工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["银行转账", "transfer", "bank.transfer"]
+    examples:
+      - "帮我银行转账，收件人：张三，数量：80，内容：项目材料已经更新"
+      - "银行转账一下，收件人：张三，数量：80，内容：项目材料已经更新"
+      - "需要银行转账，收件人：张三，数量：80，内容：项目材料已经更新"
+      - "先银行转账，内容：项目材料已经更新"
+      - "把银行转账这件事处理掉，收件人：张三，数量：80，内容：项目材料已经更新"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      amount:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "bill.pay"
+    name: "缴纳账单"
+    category: "生活服务"
+    description: "生活服务场景下的缴纳账单工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["缴纳账单", "pay", "bill.pay"]
+    examples:
+      - "帮我缴纳账单，收件人：张三，数量：80，内容：项目材料已经更新"
+      - "缴纳账单一下，收件人：张三，数量：80，内容：项目材料已经更新"
+      - "需要缴纳账单，收件人：张三，数量：80，内容：项目材料已经更新"
+      - "先缴纳账单，内容：项目材料已经更新"
+      - "把缴纳账单这件事处理掉，收件人：张三，数量：80，内容：项目材料已经更新"
+    arguments:
+      recipient:
+        type: "string"
+        required: true
+      amount:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "shopping.search"
+    name: "搜索商品"
+    category: "生活服务"
+    description: "生活服务场景下的搜索商品工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索商品", "search", "shopping.search"]
+    examples:
+      - "帮我搜索商品，查询：季度报告"
+      - "搜索商品一下，查询：季度报告"
+      - "需要搜索商品，查询：季度报告"
+      - "先搜索商品，稍后补充"
+      - "把搜索商品这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "coupon.search"
+    name: "搜索优惠券"
+    category: "生活服务"
+    description: "生活服务场景下的搜索优惠券工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索优惠券", "search", "coupon.search"]
+    examples:
+      - "帮我搜索优惠券，查询：季度报告"
+      - "搜索优惠券一下，查询：季度报告"
+      - "需要搜索优惠券，查询：季度报告"
+      - "先搜索优惠券，稍后补充"
+      - "把搜索优惠券这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "fitness.log"
+    name: "记录运动"
+    category: "生活服务"
+    description: "生活服务场景下的记录运动工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["记录运动", "log", "fitness.log"]
+    examples:
+      - "帮我记录运动，内容：项目材料已经更新，数量：80，日期：明天"
+      - "记录运动一下，内容：项目材料已经更新，数量：80，日期：明天"
+      - "需要记录运动，内容：项目材料已经更新，数量：80，日期：明天"
+      - "先记录运动，数量：80，日期：明天"
+      - "把记录运动这件事处理掉，内容：项目材料已经更新，数量：80，日期：明天"
+    arguments:
+      content:
+        type: "string"
+        required: true
+      amount:
+        type: "string"
+        required: false
+      date:
+        type: "string"
+        required: false
+
+  - code: "water.log"
+    name: "记录饮水"
+    category: "生活服务"
+    description: "生活服务场景下的记录饮水工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["记录饮水", "log", "water.log"]
+    examples:
+      - "帮我记录饮水，内容：项目材料已经更新，数量：80，日期：明天"
+      - "记录饮水一下，内容：项目材料已经更新，数量：80，日期：明天"
+      - "需要记录饮水，内容：项目材料已经更新，数量：80，日期：明天"
+      - "先记录饮水，数量：80，日期：明天"
+      - "把记录饮水这件事处理掉，内容：项目材料已经更新，数量：80，日期：明天"
+    arguments:
+      content:
+        type: "string"
+        required: true
+      amount:
+        type: "string"
+        required: false
+      date:
+        type: "string"
+        required: false
+
+  - code: "habit.track"
+    name: "打卡习惯"
+    category: "生活服务"
+    description: "生活服务场景下的打卡习惯工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["打卡习惯", "track", "habit.track"]
+    examples:
+      - "帮我打卡习惯，内容：项目材料已经更新，数量：80，日期：明天"
+      - "打卡习惯一下，内容：项目材料已经更新，数量：80，日期：明天"
+      - "需要打卡习惯，内容：项目材料已经更新，数量：80，日期：明天"
+      - "先打卡习惯，数量：80，日期：明天"
+      - "把打卡习惯这件事处理掉，内容：项目材料已经更新，数量：80，日期：明天"
+    arguments:
+      content:
+        type: "string"
+        required: true
+      amount:
+        type: "string"
+        required: false
+      date:
+        type: "string"
+        required: false
+
+  - code: "parking.find"
+    name: "查找停车场"
+    category: "生活服务"
+    description: "生活服务场景下的查找停车场工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查找停车场", "find", "parking.find"]
+    examples:
+      - "帮我查找停车场，地点：上海，日期：明天"
+      - "查找停车场一下，地点：上海，日期：明天"
+      - "需要查找停车场，地点：上海，日期：明天"
+      - "先查找停车场，日期：明天"
+      - "把查找停车场这件事处理掉，地点：上海，日期：明天"
+    arguments:
+      location:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "gas_station.find"
+    name: "查找加油站"
+    category: "生活服务"
+    description: "生活服务场景下的查找加油站工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查找加油站", "find", "gas_station.find"]
+    examples:
+      - "帮我查找加油站，地点：上海，日期：明天"
+      - "查找加油站一下，地点：上海，日期：明天"
+      - "需要查找加油站，地点：上海，日期：明天"
+      - "先查找加油站，日期：明天"
+      - "把查找加油站这件事处理掉，地点：上海，日期：明天"
+    arguments:
+      location:
+        type: "string"
+        required: true
+      date:
+        type: "string"
+        required: false
+
+  - code: "event.search"
+    name: "搜索活动"
+    category: "生活服务"
+    description: "生活服务场景下的搜索活动工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索活动", "search", "event.search"]
+    examples:
+      - "帮我搜索活动，查询：季度报告"
+      - "搜索活动一下，查询：季度报告"
+      - "需要搜索活动，查询：季度报告"
+      - "先搜索活动，稍后补充"
+      - "把搜索活动这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "laundry.pickup"
+    name: "预约洗衣取送"
+    category: "生活服务"
+    description: "生活服务场景下的预约洗衣取送工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["预约洗衣取送", "pickup", "laundry.pickup"]
+    examples:
+      - "帮我预约洗衣取送，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "预约洗衣取送一下，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "需要预约洗衣取送，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "先预约洗衣取送，地点：上海，时间：明天下午三点"
+      - "把预约洗衣取送这件事处理掉，查询：季度报告，地点：上海，时间：明天下午三点"
+    arguments:
+      query:
+        type: "string"
+        required: true
+      location:
+        type: "string"
+        required: false
+      time:
+        type: "string"
+        required: false
+
+  - code: "home_repair.book"
+    name: "预约上门维修"
+    category: "生活服务"
+    description: "生活服务场景下的预约上门维修工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["预约上门维修", "book", "home_repair.book"]
+    examples:
+      - "帮我预约上门维修，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "预约上门维修一下，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "需要预约上门维修，查询：季度报告，地点：上海，时间：明天下午三点"
+      - "先预约上门维修，地点：上海，时间：明天下午三点"
+      - "把预约上门维修这件事处理掉，查询：季度报告，地点：上海，时间：明天下午三点"
+    arguments:
+      query:
+        type: "string"
+        required: true
+      location:
+        type: "string"
+        required: false
+      time:
+        type: "string"
+        required: false
+
+  - code: "music.play"
+    name: "播放音乐"
+    category: "多媒体"
+    description: "多媒体场景下的播放音乐工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["播放音乐", "play", "music.play"]
+    examples:
+      - "帮我播放音乐，查询：季度报告"
+      - "播放音乐一下，查询：季度报告"
+      - "需要播放音乐，查询：季度报告"
+      - "先播放音乐，稍后补充"
+      - "把播放音乐这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "podcast.play"
+    name: "播放播客"
+    category: "多媒体"
+    description: "多媒体场景下的播放播客工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["播放播客", "play", "podcast.play"]
+    examples:
+      - "帮我播放播客，查询：季度报告"
+      - "播放播客一下，查询：季度报告"
+      - "需要播放播客，查询：季度报告"
+      - "先播放播客，稍后补充"
+      - "把播放播客这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "video.play"
+    name: "播放视频"
+    category: "多媒体"
+    description: "多媒体场景下的播放视频工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["播放视频", "play", "video.play"]
+    examples:
+      - "帮我播放视频，查询：季度报告"
+      - "播放视频一下，查询：季度报告"
+      - "需要播放视频，查询：季度报告"
+      - "先播放视频，稍后补充"
+      - "把播放视频这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "album.search"
+    name: "搜索相册"
+    category: "多媒体"
+    description: "多媒体场景下的搜索相册工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索相册", "search", "album.search"]
+    examples:
+      - "帮我搜索相册，查询：季度报告"
+      - "搜索相册一下，查询：季度报告"
+      - "需要搜索相册，查询：季度报告"
+      - "先搜索相册，稍后补充"
+      - "把搜索相册这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "photo.find"
+    name: "查找照片"
+    category: "多媒体"
+    description: "多媒体场景下的查找照片工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查找照片", "find", "photo.find"]
+    examples:
+      - "帮我查找照片，查询：季度报告"
+      - "查找照片一下，查询：季度报告"
+      - "需要查找照片，查询：季度报告"
+      - "先查找照片，稍后补充"
+      - "把查找照片这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "photo.edit"
+    name: "编辑照片"
+    category: "多媒体"
+    description: "多媒体场景下的编辑照片工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["编辑照片", "edit", "photo.edit"]
+    examples:
+      - "帮我编辑照片，文件：方案.docx，内容：项目材料已经更新"
+      - "编辑照片一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要编辑照片，文件：方案.docx，内容：项目材料已经更新"
+      - "先编辑照片，内容：项目材料已经更新"
+      - "把编辑照片这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "photo.slideshow"
+    name: "播放照片幻灯片"
+    category: "多媒体"
+    description: "多媒体场景下的播放照片幻灯片工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["播放照片幻灯片", "slideshow", "photo.slideshow"]
+    examples:
+      - "帮我播放照片幻灯片，查询：季度报告"
+      - "播放照片幻灯片一下，查询：季度报告"
+      - "需要播放照片幻灯片，查询：季度报告"
+      - "先播放照片幻灯片，稍后补充"
+      - "把播放照片幻灯片这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "camera.open"
+    name: "打开相机"
+    category: "多媒体"
+    description: "多媒体场景下的打开相机工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["打开相机", "open", "camera.open"]
+    examples:
+      - "帮我打开相机，时长：30 分钟"
+      - "打开相机一下，时长：30 分钟"
+      - "需要打开相机，时长：30 分钟"
+      - "先打开相机，时长：30 分钟"
+      - "把打开相机这件事处理掉，时长：30 分钟"
+    arguments:
+      duration:
+        type: "string"
+        required: false
+
+  - code: "recording.start"
+    name: "开始录音"
+    category: "多媒体"
+    description: "多媒体场景下的开始录音工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["开始录音", "start", "recording.start"]
+    examples:
+      - "帮我开始录音，时长：30 分钟"
+      - "开始录音一下，时长：30 分钟"
+      - "需要开始录音，时长：30 分钟"
+      - "先开始录音，时长：30 分钟"
+      - "把开始录音这件事处理掉，时长：30 分钟"
+    arguments:
+      duration:
+        type: "string"
+        required: false
+
+  - code: "recording.transcribe"
+    name: "转写录音"
+    category: "多媒体"
+    description: "多媒体场景下的转写录音工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["转写录音", "transcribe", "recording.transcribe"]
+    examples:
+      - "帮我转写录音，文件：方案.docx，内容：项目材料已经更新"
+      - "转写录音一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要转写录音，文件：方案.docx，内容：项目材料已经更新"
+      - "先转写录音，内容：项目材料已经更新"
+      - "把转写录音这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "audiobook.play"
+    name: "播放有声书"
+    category: "多媒体"
+    description: "多媒体场景下的播放有声书工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["播放有声书", "play", "audiobook.play"]
+    examples:
+      - "帮我播放有声书，查询：季度报告"
+      - "播放有声书一下，查询：季度报告"
+      - "需要播放有声书，查询：季度报告"
+      - "先播放有声书，稍后补充"
+      - "把播放有声书这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "ebook.open"
+    name: "打开电子书"
+    category: "多媒体"
+    description: "多媒体场景下的打开电子书工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["打开电子书", "open", "ebook.open"]
+    examples:
+      - "帮我打开电子书，查询：季度报告"
+      - "打开电子书一下，查询：季度报告"
+      - "需要打开电子书，查询：季度报告"
+      - "先打开电子书，稍后补充"
+      - "把打开电子书这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "playlist.create"
+    name: "创建歌单"
+    category: "多媒体"
+    description: "多媒体场景下的创建歌单工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建歌单", "新建歌单", "create", "playlist.create"]
+    examples:
+      - "帮我创建歌单，标题：周会安排，内容：项目材料已经更新"
+      - "创建歌单一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要创建歌单，标题：周会安排，内容：项目材料已经更新"
+      - "先创建歌单，内容：项目材料已经更新"
+      - "把创建歌单这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "radio.play"
+    name: "播放电台"
+    category: "多媒体"
+    description: "多媒体场景下的播放电台工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["播放电台", "play", "radio.play"]
+    examples:
+      - "帮我播放电台，查询：季度报告"
+      - "播放电台一下，查询：季度报告"
+      - "需要播放电台，查询：季度报告"
+      - "先播放电台，稍后补充"
+      - "把播放电台这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "screen.record"
+    name: "录制屏幕"
+    category: "多媒体"
+    description: "多媒体场景下的录制屏幕工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["录制屏幕", "record", "screen.record"]
+    examples:
+      - "帮我录制屏幕，时长：30 分钟"
+      - "录制屏幕一下，时长：30 分钟"
+      - "需要录制屏幕，时长：30 分钟"
+      - "先录制屏幕，时长：30 分钟"
+      - "把录制屏幕这件事处理掉，时长：30 分钟"
+    arguments:
+      duration:
+        type: "string"
+        required: false
+
+  - code: "subtitle.generate"
+    name: "生成字幕"
+    category: "多媒体"
+    description: "多媒体场景下的生成字幕工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["生成字幕", "generate", "subtitle.generate"]
+    examples:
+      - "帮我生成字幕，查询：季度报告"
+      - "生成字幕一下，查询：季度报告"
+      - "需要生成字幕，查询：季度报告"
+      - "先生成字幕，稍后补充"
+      - "把生成字幕这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "image.generate"
+    name: "生成图片"
+    category: "多媒体"
+    description: "多媒体场景下的生成图片工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["生成图片", "generate", "image.generate"]
+    examples:
+      - "帮我生成图片，查询：季度报告"
+      - "生成图片一下，查询：季度报告"
+      - "需要生成图片，查询：季度报告"
+      - "先生成图片，稍后补充"
+      - "把生成图片这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "video.edit"
+    name: "剪辑视频"
+    category: "多媒体"
+    description: "多媒体场景下的剪辑视频工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["剪辑视频", "edit", "video.edit"]
+    examples:
+      - "帮我剪辑视频，文件：方案.docx，内容：项目材料已经更新"
+      - "剪辑视频一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要剪辑视频，文件：方案.docx，内容：项目材料已经更新"
+      - "先剪辑视频，内容：项目材料已经更新"
+      - "把剪辑视频这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "light.turn_on"
+    name: "打开灯光"
+    category: "智能家居"
+    description: "智能家居场景下的打开灯光工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["打开灯光", "turn on", "light.turn_on"]
+    examples:
+      - "帮我打开灯光，设备：客厅灯"
+      - "打开灯光一下，设备：客厅灯"
+      - "需要打开灯光，设备：客厅灯"
+      - "先打开灯光，设备：客厅灯"
+      - "把打开灯光这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "light.turn_off"
+    name: "关闭灯光"
+    category: "智能家居"
+    description: "智能家居场景下的关闭灯光工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["关闭灯光", "turn off", "light.turn_off"]
+    examples:
+      - "帮我关闭灯光，设备：客厅灯"
+      - "关闭灯光一下，设备：客厅灯"
+      - "需要关闭灯光，设备：客厅灯"
+      - "先关闭灯光，设备：客厅灯"
+      - "把关闭灯光这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "light.set_brightness"
+    name: "调节灯光亮度"
+    category: "智能家居"
+    description: "智能家居场景下的调节灯光亮度工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["调节灯光亮度", "set brightness", "light.set_brightness"]
+    examples:
+      - "帮我调节灯光亮度，设备：客厅灯，数量：80"
+      - "调节灯光亮度一下，设备：客厅灯，数量：80"
+      - "需要调节灯光亮度，设备：客厅灯，数量：80"
+      - "先调节灯光亮度，设备：客厅灯"
+      - "把调节灯光亮度这件事处理掉，设备：客厅灯，数量：80"
+    arguments:
+      device:
+        type: "string"
+        required: false
+      amount:
+        type: "string"
+        required: true
+
+  - code: "ac.set_temperature"
+    name: "设置空调温度"
+    category: "智能家居"
+    description: "智能家居场景下的设置空调温度工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["设置空调温度", "set temperature", "ac.set_temperature"]
+    examples:
+      - "帮我设置空调温度，设备：客厅灯，温度：26 度"
+      - "设置空调温度一下，设备：客厅灯，温度：26 度"
+      - "需要设置空调温度，设备：客厅灯，温度：26 度"
+      - "先设置空调温度，设备：客厅灯"
+      - "把设置空调温度这件事处理掉，设备：客厅灯，温度：26 度"
+    arguments:
+      device:
+        type: "string"
+        required: false
+      temperature:
+        type: "string"
+        required: true
+
+  - code: "curtain.open"
+    name: "打开窗帘"
+    category: "智能家居"
+    description: "智能家居场景下的打开窗帘工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["打开窗帘", "open", "curtain.open"]
+    examples:
+      - "帮我打开窗帘，设备：客厅灯"
+      - "打开窗帘一下，设备：客厅灯"
+      - "需要打开窗帘，设备：客厅灯"
+      - "先打开窗帘，设备：客厅灯"
+      - "把打开窗帘这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "curtain.close"
+    name: "关闭窗帘"
+    category: "智能家居"
+    description: "智能家居场景下的关闭窗帘工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["关闭窗帘", "close", "curtain.close"]
+    examples:
+      - "帮我关闭窗帘，设备：客厅灯"
+      - "关闭窗帘一下，设备：客厅灯"
+      - "需要关闭窗帘，设备：客厅灯"
+      - "先关闭窗帘，设备：客厅灯"
+      - "把关闭窗帘这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "tv.turn_on"
+    name: "打开电视"
+    category: "智能家居"
+    description: "智能家居场景下的打开电视工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["打开电视", "turn on", "tv.turn_on"]
+    examples:
+      - "帮我打开电视，设备：客厅灯"
+      - "打开电视一下，设备：客厅灯"
+      - "需要打开电视，设备：客厅灯"
+      - "先打开电视，设备：客厅灯"
+      - "把打开电视这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "tv.channel"
+    name: "切换电视频道"
+    category: "智能家居"
+    description: "智能家居场景下的切换电视频道工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["切换电视频道", "channel", "tv.channel"]
+    examples:
+      - "帮我切换电视频道，设备：客厅灯，查询：季度报告"
+      - "切换电视频道一下，设备：客厅灯，查询：季度报告"
+      - "需要切换电视频道，设备：客厅灯，查询：季度报告"
+      - "先切换电视频道，设备：客厅灯"
+      - "把切换电视频道这件事处理掉，设备：客厅灯，查询：季度报告"
+    arguments:
+      device:
+        type: "string"
+        required: false
+      query:
+        type: "string"
+        required: true
+
+  - code: "robot_vacuum.start"
+    name: "启动扫地机器人"
+    category: "智能家居"
+    description: "智能家居场景下的启动扫地机器人工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["启动扫地机器人", "start", "robot_vacuum.start"]
+    examples:
+      - "帮我启动扫地机器人，设备：客厅灯"
+      - "启动扫地机器人一下，设备：客厅灯"
+      - "需要启动扫地机器人，设备：客厅灯"
+      - "先启动扫地机器人，设备：客厅灯"
+      - "把启动扫地机器人这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "camera.view"
+    name: "查看摄像头"
+    category: "智能家居"
+    description: "智能家居场景下的查看摄像头工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查看摄像头", "view", "camera.view"]
+    examples:
+      - "帮我查看摄像头，设备：客厅灯"
+      - "查看摄像头一下，设备：客厅灯"
+      - "需要查看摄像头，设备：客厅灯"
+      - "先查看摄像头，设备：客厅灯"
+      - "把查看摄像头这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "door.lock"
+    name: "锁门"
+    category: "智能家居"
+    description: "智能家居场景下的锁门工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["锁门", "lock", "door.lock"]
+    examples:
+      - "帮我锁门，设备：客厅灯"
+      - "锁门一下，设备：客厅灯"
+      - "需要锁门，设备：客厅灯"
+      - "先锁门，设备：客厅灯"
+      - "把锁门这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "door.unlock"
+    name: "开门锁"
+    category: "智能家居"
+    description: "智能家居场景下的开门锁工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["开门锁", "unlock", "door.unlock"]
+    examples:
+      - "帮我开门锁，设备：客厅灯"
+      - "开门锁一下，设备：客厅灯"
+      - "需要开门锁，设备：客厅灯"
+      - "先开门锁，设备：客厅灯"
+      - "把开门锁这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "thermostat.set"
+    name: "设置恒温器"
+    category: "智能家居"
+    description: "智能家居场景下的设置恒温器工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["设置恒温器", "set", "thermostat.set"]
+    examples:
+      - "帮我设置恒温器，设备：客厅灯，温度：26 度"
+      - "设置恒温器一下，设备：客厅灯，温度：26 度"
+      - "需要设置恒温器，设备：客厅灯，温度：26 度"
+      - "先设置恒温器，设备：客厅灯"
+      - "把设置恒温器这件事处理掉，设备：客厅灯，温度：26 度"
+    arguments:
+      device:
+        type: "string"
+        required: false
+      temperature:
+        type: "string"
+        required: true
+
+  - code: "humidifier.set"
+    name: "设置加湿器"
+    category: "智能家居"
+    description: "智能家居场景下的设置加湿器工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["设置加湿器", "set", "humidifier.set"]
+    examples:
+      - "帮我设置加湿器，设备：客厅灯"
+      - "设置加湿器一下，设备：客厅灯"
+      - "需要设置加湿器，设备：客厅灯"
+      - "先设置加湿器，设备：客厅灯"
+      - "把设置加湿器这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "purifier.turn_on"
+    name: "打开空气净化器"
+    category: "智能家居"
+    description: "智能家居场景下的打开空气净化器工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["打开空气净化器", "turn on", "purifier.turn_on"]
+    examples:
+      - "帮我打开空气净化器，设备：客厅灯"
+      - "打开空气净化器一下，设备：客厅灯"
+      - "需要打开空气净化器，设备：客厅灯"
+      - "先打开空气净化器，设备：客厅灯"
+      - "把打开空气净化器这件事处理掉，设备：客厅灯"
+    arguments:
+      device:
+        type: "string"
+        required: false
+
+  - code: "code.search"
+    name: "搜索代码"
+    category: "开发工具"
+    description: "开发工具场景下的搜索代码工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["搜索代码", "search", "code.search"]
+    examples:
+      - "帮我搜索代码，查询：季度报告"
+      - "搜索代码一下，查询：季度报告"
+      - "需要搜索代码，查询：季度报告"
+      - "先搜索代码，稍后补充"
+      - "把搜索代码这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "test.run"
+    name: "运行测试"
+    category: "开发工具"
+    description: "开发工具场景下的运行测试工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["运行测试", "run", "test.run"]
+    examples:
+      - "帮我运行测试，查询：季度报告"
+      - "运行测试一下，查询：季度报告"
+      - "需要运行测试，查询：季度报告"
+      - "先运行测试，稍后补充"
+      - "把运行测试这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "issue.create"
+    name: "创建 issue"
+    category: "开发工具"
+    description: "开发工具场景下的创建 issue工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建issue", "新建issue", "create", "issue.create"]
+    examples:
+      - "帮我创建 issue，标题：周会安排，内容：项目材料已经更新"
+      - "创建issue一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要创建 issue，标题：周会安排，内容：项目材料已经更新"
+      - "先创建 issue，内容：项目材料已经更新"
+      - "把创建 issue这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "pr.query"
+    name: "查询 PR"
+    category: "开发工具"
+    description: "开发工具场景下的查询 PR工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查询PR", "query", "pr.query"]
+    examples:
+      - "帮我查询 PR，查询：季度报告"
+      - "查询PR一下，查询：季度报告"
+      - "需要查询 PR，查询：季度报告"
+      - "先查询 PR，稍后补充"
+      - "把查询 PR这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "deploy.start"
+    name: "开始部署"
+    category: "开发工具"
+    description: "开发工具场景下的开始部署工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["开始部署", "start", "deploy.start"]
+    examples:
+      - "帮我开始部署，查询：季度报告"
+      - "开始部署一下，查询：季度报告"
+      - "需要开始部署，查询：季度报告"
+      - "先开始部署，稍后补充"
+      - "把开始部署这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "logs.search"
+    name: "检索日志"
+    category: "开发工具"
+    description: "开发工具场景下的检索日志工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["检索日志", "search", "logs.search"]
+    examples:
+      - "帮我检索日志，查询：季度报告"
+      - "检索日志一下，查询：季度报告"
+      - "需要检索日志，查询：季度报告"
+      - "先检索日志，稍后补充"
+      - "把检索日志这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "ci.status"
+    name: "查询 CI 状态"
+    category: "开发工具"
+    description: "开发工具场景下的查询 CI 状态工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查询CI状态", "status", "ci.status"]
+    examples:
+      - "帮我查询 CI 状态，查询：季度报告"
+      - "查询CI状态一下，查询：季度报告"
+      - "需要查询 CI 状态，查询：季度报告"
+      - "先查询 CI 状态，稍后补充"
+      - "把查询 CI 状态这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "branch.create"
+    name: "创建分支"
+    category: "开发工具"
+    description: "开发工具场景下的创建分支工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建分支", "新建分支", "create", "branch.create"]
+    examples:
+      - "帮我创建分支，标题：周会安排，内容：项目材料已经更新"
+      - "创建分支一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要创建分支，标题：周会安排，内容：项目材料已经更新"
+      - "先创建分支，内容：项目材料已经更新"
+      - "把创建分支这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "commit.summarize"
+    name: "总结提交"
+    category: "开发工具"
+    description: "开发工具场景下的总结提交工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["总结提交", "summarize", "commit.summarize"]
+    examples:
+      - "帮我总结提交，查询：季度报告"
+      - "总结提交一下，查询：季度报告"
+      - "需要总结提交，查询：季度报告"
+      - "先总结提交，稍后补充"
+      - "把总结提交这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "database.query"
+    name: "查询数据库"
+    category: "开发工具"
+    description: "开发工具场景下的查询数据库工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查询数据库", "query", "database.query"]
+    examples:
+      - "帮我查询数据库，查询：季度报告"
+      - "查询数据库一下，查询：季度报告"
+      - "需要查询数据库，查询：季度报告"
+      - "先查询数据库，稍后补充"
+      - "把查询数据库这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "api.call"
+    name: "调用 API"
+    category: "开发工具"
+    description: "开发工具场景下的调用 API工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["调用API", "call", "api.call"]
+    examples:
+      - "帮我调用 API，查询：季度报告"
+      - "调用API一下，查询：季度报告"
+      - "需要调用 API，查询：季度报告"
+      - "先调用 API，稍后补充"
+      - "把调用 API这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "incident.create"
+    name: "创建故障单"
+    category: "开发工具"
+    description: "开发工具场景下的创建故障单工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建故障单", "新建故障单", "create", "incident.create"]
+    examples:
+      - "帮我创建故障单，标题：周会安排，内容：项目材料已经更新"
+      - "创建故障单一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要创建故障单，标题：周会安排，内容：项目材料已经更新"
+      - "先创建故障单，内容：项目材料已经更新"
+      - "把创建故障单这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "feature_flag.toggle"
+    name: "切换功能开关"
+    category: "开发工具"
+    description: "开发工具场景下的切换功能开关工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["切换功能开关", "toggle", "feature_flag.toggle"]
+    examples:
+      - "帮我切换功能开关，名称：李雷，模式：开启"
+      - "切换功能开关一下，名称：李雷，模式：开启"
+      - "需要切换功能开关，名称：李雷，模式：开启"
+      - "先切换功能开关，稍后补充"
+      - "把切换功能开关这件事处理掉，名称：李雷，模式：开启"
+    arguments:
+      name:
+        type: "string"
+        required: true
+      mode:
+        type: "string"
+        required: true
+
+  - code: "release.create"
+    name: "创建发布"
+    category: "开发工具"
+    description: "开发工具场景下的创建发布工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["创建发布", "新建发布", "create", "release.create"]
+    examples:
+      - "帮我创建发布，标题：周会安排，内容：项目材料已经更新"
+      - "创建发布一下，标题：周会安排，内容：项目材料已经更新"
+      - "需要创建发布，标题：周会安排，内容：项目材料已经更新"
+      - "先创建发布，内容：项目材料已经更新"
+      - "把创建发布这件事处理掉，标题：周会安排，内容：项目材料已经更新"
+    arguments:
+      title:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
+  - code: "container.restart"
+    name: "重启容器"
+    category: "开发工具"
+    description: "开发工具场景下的重启容器工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["重启容器", "restart", "container.restart"]
+    examples:
+      - "帮我重启容器，查询：季度报告"
+      - "重启容器一下，查询：季度报告"
+      - "需要重启容器，查询：季度报告"
+      - "先重启容器，稍后补充"
+      - "把重启容器这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "metric.query"
+    name: "查询监控指标"
+    category: "开发工具"
+    description: "开发工具场景下的查询监控指标工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["查询监控指标", "query", "metric.query"]
+    examples:
+      - "帮我查询监控指标，查询：季度报告"
+      - "查询监控指标一下，查询：季度报告"
+      - "需要查询监控指标，查询：季度报告"
+      - "先查询监控指标，稍后补充"
+      - "把查询监控指标这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "secrets.rotate"
+    name: "轮换密钥"
+    category: "开发工具"
+    description: "开发工具场景下的轮换密钥工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["轮换密钥", "rotate", "secrets.rotate"]
+    examples:
+      - "帮我轮换密钥，名称：李雷"
+      - "轮换密钥一下，名称：李雷"
+      - "需要轮换密钥，名称：李雷"
+      - "先轮换密钥，稍后补充"
+      - "把轮换密钥这件事处理掉，名称：李雷"
+    arguments:
+      name:
+        type: "string"
+        required: true
+
+  - code: "dependency.check"
+    name: "检查依赖"
+    category: "开发工具"
+    description: "开发工具场景下的检查依赖工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["检查依赖", "check", "dependency.check"]
+    examples:
+      - "帮我检查依赖，查询：季度报告"
+      - "检查依赖一下，查询：季度报告"
+      - "需要检查依赖，查询：季度报告"
+      - "先检查依赖，稍后补充"
+      - "把检查依赖这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "translate.text"
+    name: "翻译文本"
+    category: "知识工具"
+    description: "知识工具场景下的翻译文本工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["翻译文本", "text", "translate.text"]
+    examples:
+      - "帮我翻译文本，内容：项目材料已经更新，目标：英文"
+      - "翻译文本一下，内容：项目材料已经更新，目标：英文"
+      - "需要翻译文本，内容：项目材料已经更新，目标：英文"
+      - "先翻译文本，稍后补充"
+      - "把翻译文本这件事处理掉，内容：项目材料已经更新，目标：英文"
+    arguments:
+      content:
+        type: "string"
+        required: true
+      target:
+        type: "string"
+        required: true
+
+  - code: "summarize.text"
+    name: "总结文本"
+    category: "知识工具"
+    description: "知识工具场景下的总结文本工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["总结文本", "text", "summarize.text"]
+    examples:
+      - "帮我总结文本，内容：项目材料已经更新"
+      - "总结文本一下，内容：项目材料已经更新"
+      - "需要总结文本，内容：项目材料已经更新"
+      - "先总结文本，稍后补充"
+      - "把总结文本这件事处理掉，内容：项目材料已经更新"
+    arguments:
+      content:
+        type: "string"
+        required: true
+
+  - code: "calculator.compute"
+    name: "计算表达式"
+    category: "知识工具"
+    description: "知识工具场景下的计算表达式工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["计算表达式", "compute", "calculator.compute"]
+    examples:
+      - "帮我计算表达式，查询：季度报告"
+      - "计算表达式一下，查询：季度报告"
+      - "需要计算表达式，查询：季度报告"
+      - "先计算表达式，稍后补充"
+      - "把计算表达式这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "unit.convert"
+    name: "单位换算"
+    category: "知识工具"
+    description: "知识工具场景下的单位换算工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["单位换算", "convert", "unit.convert"]
+    examples:
+      - "帮我单位换算，查询：季度报告"
+      - "单位换算一下，查询：季度报告"
+      - "需要单位换算，查询：季度报告"
+      - "先单位换算，稍后补充"
+      - "把单位换算这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "currency.convert"
+    name: "汇率换算"
+    category: "知识工具"
+    description: "知识工具场景下的汇率换算工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["汇率换算", "convert", "currency.convert"]
+    examples:
+      - "帮我汇率换算，查询：季度报告"
+      - "汇率换算一下，查询：季度报告"
+      - "需要汇率换算，查询：季度报告"
+      - "先汇率换算，稍后补充"
+      - "把汇率换算这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "encyclopedia.search"
+    name: "百科搜索"
+    category: "知识工具"
+    description: "知识工具场景下的百科搜索工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["百科搜索", "search", "encyclopedia.search"]
+    examples:
+      - "帮我百科搜索，查询：季度报告"
+      - "百科搜索一下，查询：季度报告"
+      - "需要百科搜索，查询：季度报告"
+      - "先百科搜索，稍后补充"
+      - "把百科搜索这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "dictionary.lookup"
+    name: "词典查询"
+    category: "知识工具"
+    description: "知识工具场景下的词典查询工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["词典查询", "lookup", "dictionary.lookup"]
+    examples:
+      - "帮我词典查询，查询：季度报告"
+      - "词典查询一下，查询：季度报告"
+      - "需要词典查询，查询：季度报告"
+      - "先词典查询，稍后补充"
+      - "把词典查询这件事处理掉，查询：季度报告"
+    arguments:
+      query:
+        type: "string"
+        required: true
+
+  - code: "grammar.check"
+    name: "语法检查"
+    category: "知识工具"
+    description: "知识工具场景下的语法检查工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["语法检查", "check", "grammar.check"]
+    examples:
+      - "帮我语法检查，内容：项目材料已经更新"
+      - "语法检查一下，内容：项目材料已经更新"
+      - "需要语法检查，内容：项目材料已经更新"
+      - "先语法检查，稍后补充"
+      - "把语法检查这件事处理掉，内容：项目材料已经更新"
+    arguments:
+      content:
+        type: "string"
+        required: true
+
+  - code: "text.rewrite"
+    name: "改写文本"
+    category: "知识工具"
+    description: "知识工具场景下的改写文本工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["改写文本", "rewrite", "text.rewrite"]
+    examples:
+      - "帮我改写文本，内容：项目材料已经更新"
+      - "改写文本一下，内容：项目材料已经更新"
+      - "需要改写文本，内容：项目材料已经更新"
+      - "先改写文本，稍后补充"
+      - "把改写文本这件事处理掉，内容：项目材料已经更新"
+    arguments:
+      content:
+        type: "string"
+        required: true
+
+  - code: "sentiment.analyze"
+    name: "情感分析"
+    category: "知识工具"
+    description: "知识工具场景下的情感分析工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["情感分析", "analyze", "sentiment.analyze"]
+    examples:
+      - "帮我情感分析，内容：项目材料已经更新"
+      - "情感分析一下，内容：项目材料已经更新"
+      - "需要情感分析，内容：项目材料已经更新"
+      - "先情感分析，稍后补充"
+      - "把情感分析这件事处理掉，内容：项目材料已经更新"
+    arguments:
+      content:
+        type: "string"
+        required: true
+
+  - code: "data.extract"
+    name: "抽取数据"
+    category: "知识工具"
+    description: "知识工具场景下的抽取数据工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["抽取数据", "extract", "data.extract"]
+    examples:
+      - "帮我抽取数据，内容：项目材料已经更新"
+      - "抽取数据一下，内容：项目材料已经更新"
+      - "需要抽取数据，内容：项目材料已经更新"
+      - "先抽取数据，稍后补充"
+      - "把抽取数据这件事处理掉，内容：项目材料已经更新"
+    arguments:
+      content:
+        type: "string"
+        required: true
+
+  - code: "citation.format"
+    name: "格式化引用"
+    category: "知识工具"
+    description: "知识工具场景下的格式化引用工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["格式化引用", "format", "citation.format"]
+    examples:
+      - "帮我格式化引用，内容：项目材料已经更新，模式：开启"
+      - "格式化引用一下，内容：项目材料已经更新，模式：开启"
+      - "需要格式化引用，内容：项目材料已经更新，模式：开启"
+      - "先格式化引用，模式：开启"
+      - "把格式化引用这件事处理掉，内容：项目材料已经更新，模式：开启"
+    arguments:
+      content:
+        type: "string"
+        required: true
+      mode:
+        type: "string"
+        required: false
+
+  - code: "ocr.extract"
+    name: "识别图片文字"
+    category: "知识工具"
+    description: "知识工具场景下的识别图片文字工具，用于根据用户自然语言指令完成路由和参数抽取。"
+    aliases: ["识别图片文字", "extract", "ocr.extract"]
+    examples:
+      - "帮我识别图片文字，文件：方案.docx，内容：项目材料已经更新"
+      - "识别图片文字一下，文件：方案.docx，内容：项目材料已经更新"
+      - "需要识别图片文字，文件：方案.docx，内容：项目材料已经更新"
+      - "先识别图片文字，内容：项目材料已经更新"
+      - "把识别图片文字这件事处理掉，文件：方案.docx，内容：项目材料已经更新"
+    arguments:
+      file:
+        type: "string"
+        required: true
+      content:
+        type: "string"
+        required: false
+
   - code: "none"
-    name: "非指令"
-    description: "闲聊、知识问答、解释说明或不需要调用工具的输入"
-    aliases: []
+    name: "非指令输入"
+    category: "兜底"
+    description: "闲聊、知识问答、解释说明、感谢或不需要调用工具的输入。"
+    aliases: ["闲聊", "问答", "无需工具", "none"]
     examples:
       - "你是谁"
-      - "今天天气为什么会变冷"
-      - "给我讲个笑话"
-      - "怎么学习机器学习"
       - "谢谢你"
+      - "解释一下余弦相似度"
+      - "为什么天空是蓝色的"
+      - "讲个笑话"
     arguments: {}

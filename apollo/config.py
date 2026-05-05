@@ -17,6 +17,7 @@ class Tool:
     code: str
     name: str
     description: str
+    category: str
     aliases: list[str]
     examples: list[str]
     arguments: dict[str, ArgumentSpec]
@@ -24,6 +25,7 @@ class Tool:
     def embedding_text(self) -> str:
         return (
             f"name: {self.name}\n"
+            f"category: {self.category}\n"
             f"description: {self.description}\n"
             f"aliases: {self.aliases}\n"
             f"examples: {self.examples}"
@@ -33,6 +35,7 @@ class Tool:
         return {
             "code": self.code,
             "name": self.name,
+            "category": self.category,
             "description": self.description,
             "aliases": self.aliases,
             "examples": self.examples,
@@ -52,8 +55,11 @@ def load_tools(path: str | Path | None = None) -> list[Tool]:
     raw = source.read_text(encoding="utf-8")
     data = _load_yaml(raw)
     tools = [_parse_tool(item) for item in data.get("tools", [])]
-    codes = {tool.code for tool in tools}
-    if "none" not in codes:
+    codes = [tool.code for tool in tools]
+    duplicated = sorted({code for code in codes if codes.count(code) > 1})
+    if duplicated:
+        raise ValueError(f"duplicate tool codes in tools config: {duplicated}")
+    if "none" not in set(codes):
         raise ValueError('tools config must include tool_code = "none"')
     return tools
 
@@ -69,6 +75,7 @@ def _parse_tool(item: dict[str, Any]) -> Tool:
         code=str(item["code"]),
         name=str(item["name"]),
         description=str(item["description"]),
+        category=str(item.get("category", "uncategorized")),
         aliases=list(item.get("aliases") or []),
         examples=list(item.get("examples") or []),
         arguments=args,

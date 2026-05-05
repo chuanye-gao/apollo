@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
-from apollo.config import Tool, load_tools
+from apollo.cache import compute_tools_hash, load_cache
+from apollo.config import Tool, default_tools_path, load_tools
 from apollo.embedding import BGEEmbeddingModel, EmbeddingModel, HashEmbeddingModel
 from apollo.llm import DryRunClient, LLMClient, OpenAICompatibleClient
 from apollo.prompt import build_prompt
@@ -39,10 +41,13 @@ class Router:
         tools: list[Tool] | None = None,
         embedding_model: EmbeddingModel | None = None,
         llm_client: LLMClient | DryRunClient | None = None,
+        tools_path: str | Path | None = None,
     ) -> None:
-        self.tools = tools or load_tools()
+        self.tools = tools or load_tools(tools_path)
         self.tools_by_code = {tool.code: tool for tool in self.tools}
-        self.retriever = ToolRetriever(self.tools, embedding_model or BGEEmbeddingModel())
+        model = embedding_model or BGEEmbeddingModel()
+        precomputed = self._load_precomputed_vectors(model, tools_path)
+        self.retriever = ToolRetriever(self.tools, model, precomputed)
         self.llm_client = llm_client or OpenAICompatibleClient()
 
     @classmethod
@@ -62,14 +67,14 @@ class Router:
             llm_client = DryRunClient()
         else:
             raise ValueError(f"unknown llm mode: {llm}")
-        return cls(tools=tools, embedding_model=embedding_model, llm_client=llm_client)
+        return cls(tools=tools, embedding_model=embedding_model, llm_client=llm_client, tools_path=tools_path)
 
     def route(self, query: str) -> RouteResult:
         candidates = self.retriever.retrieve(query, k=TOP_K)
-        prompt = build_prompt(query, candidates)
         if isinstance(self.llm_client, DryRunClient):
             raw = self.llm_client.complete_with_context(query, candidates)
         else:
+            prompt = build_prompt(query, candidates)
             raw = self.llm_client.complete(prompt)
         data = _parse_json(raw)
         return self._validate(data, candidates)
@@ -79,6 +84,22 @@ class Router:
 
     def build_prompt(self, query: str) -> str:
         return build_prompt(query, self.retrieve(query))
+
+    def _load_precomputed_vectors(
+        self,
+        embedding_model: EmbeddingModel,
+        tools_path: str | Path | None,
+    ) -> list[list[float]] | None:
+        if not isinstance(embedding_model, BGEEmbeddingModel):
+            return None
+        source = Path(tools_path) if tools_path else default_tools_path()
+        cached = load_cache(compute_tools_hash(source), embedding="bge")
+        if cached is None:
+            return None
+        cached_codes, cached_vectors = cached
+        if cached_codes != [tool.code for tool in self.tools]:
+            return None
+        return cached_vectors
 
     def _validate(self, data: dict[str, Any], candidates: list[Candidate]) -> RouteResult:
         candidate_codes = {candidate.tool.code for candidate in candidates}

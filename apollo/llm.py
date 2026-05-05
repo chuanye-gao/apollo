@@ -55,17 +55,62 @@ class OpenAICompatibleClient:
         return data["choices"][0]["message"]["content"]
 
 
+ARGUMENT_LABELS: dict[str, list[str]] = {
+    "recipient": ["收件人", "联系人", "发送给", "recipient"],
+    "content": ["内容", "正文", "消息", "备注", "content"],
+    "subject": ["主题", "subject"],
+    "title": ["标题", "事项", "会议", "title"],
+    "time": ["时间", "时刻", "time"],
+    "date": ["日期", "哪天", "date"],
+    "location": ["地点", "城市", "位置", "location"],
+    "destination": ["目的地", "终点", "destination"],
+    "origin": ["起点", "出发地", "origin"],
+    "query": ["查询", "关键词", "名称", "query"],
+    "name": ["姓名", "名称", "name"],
+    "file": ["文件", "文件名", "file"],
+    "folder": ["文件夹", "目录", "folder"],
+    "url": ["链接", "网址", "url"],
+    "amount": ["金额", "数量", "数值", "amount"],
+    "unit": ["单位", "unit"],
+    "source": ["来源", "源", "source"],
+    "target": ["目标", "目标语言", "target"],
+    "language": ["语言", "language"],
+    "priority": ["优先级", "priority"],
+    "status": ["状态", "status"],
+    "assignee": ["负责人", "assignee"],
+    "device": ["设备", "device"],
+    "mode": ["模式", "mode"],
+    "temperature": ["温度", "temperature"],
+    "duration": ["时长", "duration"],
+}
+
+NON_INSTRUCTION_MARKERS = [
+    "为什么",
+    "怎么学习",
+    "解释一下",
+    "是什么",
+    "你是谁",
+    "谢谢",
+    "讲个笑话",
+    "原理",
+    "区别",
+]
+
+
 class DryRunClient:
-    """Local deterministic arbiter for tests and smoke demos only."""
+    """Local deterministic arbiter for tests, baselines, and smoke demos.
+
+    It intentionally avoids network calls. Selection is lexical over the already
+    recalled candidates, while argument extraction only accepts values that are
+    explicitly present in the query after known labels.
+    """
 
     def complete_with_context(self, query: str, candidates: list[Candidate]) -> str:
-        selected = self._select(query, candidates)
-        args = self._extract_args(query, selected.tool.code)
-        if selected.tool.code == "none":
-            is_instruction = False
+        selected = self.select(query, candidates)
+        args = self.extract_args(query, selected)
+        is_instruction = selected.tool.code != "none"
+        if not is_instruction:
             args = {}
-        else:
-            is_instruction = True
         result = {
             "is_instruction": is_instruction,
             "tool_code": selected.tool.code,
@@ -80,84 +125,41 @@ class DryRunClient:
     def complete(self, prompt: str) -> str:
         raise RuntimeError("DryRunClient requires complete_with_context(query, candidates)")
 
-    def _select(self, query: str, candidates: list[Candidate]) -> Candidate:
-        question_markers = ["为什么", "怎么学习", "解释", "是什么", "你是谁", "谢谢", "讲个笑话"]
-        if any(marker in query for marker in question_markers):
-            none = next((candidate for candidate in candidates if candidate.tool.code == "none"), None)
-            if none:
-                return none
-        return max(
-            (candidate for candidate in candidates if candidate.tool.code != "none"),
-            key=lambda candidate: candidate.score,
-            default=candidates[0],
-        )
+    def select(self, query: str, candidates: list[Candidate]) -> Candidate:
+        none = next((candidate for candidate in candidates if candidate.tool.code == "none"), None)
+        if any(marker in query for marker in NON_INSTRUCTION_MARKERS) and none is not None:
+            return none
 
-    def _extract_args(self, query: str, tool_code: str) -> dict[str, str]:
-        if tool_code == "message.send":
-            match = re.search(r"给(.+?)(?:发消息|发短信|发一句|说|通知|告诉)(?:说)?(.+)", query)
-            if match:
-                return {"recipient": match.group(1).strip(), "content": match.group(2).strip(" ：:，,")}
-            match = re.search(r"告诉(.+?)(.+)", query)
-            if match:
-                return {"recipient": match.group(1).strip(), "content": match.group(2).strip(" ：:，,")}
-            return {}
-        if tool_code == "alarm.create":
-            args: dict[str, str] = {}
-            time = _first_match(query, [r"(半小时后)", r"((?:上午|下午|晚上|早上|明早)?[一二三四五六七八九十\d]{1,3}点(?:半|三十)?)"])
-            date = _first_match(query, [r"(今天|明天|后天|周[一二三四五六日天]|下周[一二三四五六日天])"])
-            if time:
-                args["time"] = time
-            if date:
-                args["date"] = date
-            return args
-        if tool_code == "weather.query":
-            location = _first_match(query, [r"查一下(.+?)(?:今天|明天|后天|周末)?的天气", r"(.+?)(?:今天|明天|现在|周末).*(?:天气|下雨|多少度)"])
-            args = {}
-            if location:
-                args["location"] = location.strip("看看查一下")
-            date = _first_match(query, [r"(今天|明天|后天|周末)"])
-            if date:
-                args["date"] = date
-            return args
-        if tool_code == "navigation.start":
-            destination = _first_match(query, [r"(?:导航到|带我去|去)(.+)", r"规划去(.+?)最快"])
-            return {"destination": destination.strip()} if destination else {}
-        if tool_code == "music.play":
-            music = _first_match(query, [r"(?:播放|放点|来一首|来点|我想听)(.+)"])
-            return {"query": music.strip()} if music else {}
-        if tool_code in {"note.create", "todo.create"}:
-            content = _first_match(query, [r"(?:记一下|记录灵感：|记录|备忘：|加一个待办：|创建任务)(.+)"])
-            return {"content": content.strip()} if content else {}
-        if tool_code == "contact.search":
-            name = _first_match(query, [r"查一下(.+?)的", r"找(.+?)的", r"搜索通讯录里的(.+)"])
-            return {"name": name.strip()} if name else {}
-        if tool_code == "calendar.create":
-            time = _first_match(query, [r"((?:上午|下午|晚上|今晚)?[一二三四五六七八九十\d]{1,3}点)"])
-            date = _first_match(query, [r"(今天|明天|下周[一二三四五六日天]|周[一二三四五六日天])"])
-            title = query
-            for word in ["安排", "创建", "加入日历", "加一个", "帮我"]:
-                title = title.replace(word, "")
-            args = {"title": title.strip(" ，,")}
-            if time:
-                args["time"] = time
-            if date:
-                args["date"] = date
-            return args
-        if tool_code == "email.send":
-            recipient = _first_match(query, [r"给(.+?)发邮件", r"发邮件给(.+?)(?:询问|说明|反馈|通知|，|,|$)"])
-            content = _first_match(query, [r"(?:说明|询问|反馈|通知)(.+)"])
-            args = {}
-            if recipient:
-                args["recipient"] = recipient.strip()
-            if content:
-                args["content"] = content.strip()
-            return args
-        return {}
+        scored: list[tuple[float, Candidate]] = []
+        compact_query = re.sub(r"\s+", "", query).lower()
+        for candidate in candidates:
+            if candidate.tool.code == "none":
+                scored.append((candidate.score - 0.25, candidate))
+                continue
+            boost = 0.0
+            terms = [candidate.tool.name, candidate.tool.code, *candidate.tool.aliases]
+            for term in terms:
+                normalized = re.sub(r"\s+", "", str(term)).lower()
+                if normalized and normalized in compact_query:
+                    boost += 1.0 if term == candidate.tool.name else 0.55
+            scored.append((candidate.score + boost, candidate))
+        return max(scored, key=lambda item: item[0])[1]
+
+    def extract_args(self, query: str, selected: Candidate) -> dict[str, str]:
+        args: dict[str, str] = {}
+        for name in selected.tool.arguments:
+            value = _extract_labeled_value(query, name)
+            if value:
+                args[name] = value
+        return args
 
 
-def _first_match(text: str, patterns: list[str]) -> str | None:
-    for pattern in patterns:
-        match = re.search(pattern, text)
+def _extract_labeled_value(query: str, argument_name: str) -> str | None:
+    labels = ARGUMENT_LABELS.get(argument_name, [argument_name])
+    labels = [*labels, argument_name]
+    for label in labels:
+        pattern = rf"(?:{re.escape(label)})\s*[:：]\s*([^，。,；;\n]+)"
+        match = re.search(pattern, query, flags=re.IGNORECASE)
         if match:
-            return match.group(1)
+            return match.group(1).strip()
     return None
